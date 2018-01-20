@@ -12,11 +12,15 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
+```python
+for i in range(10):
+  print i
+```
+
 ```markdown
 Syntax highlighted code block
 
-for i in range(10):
-  print i
+
   
   
 # Header 1
