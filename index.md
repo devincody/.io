@@ -1,8 +1,8 @@
 ## Welcome to the blog!
 
+I intend to use this space to rant about projects, and code.
 
-
-%## Welcome to GitHub Pages
+//## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/devincody/.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
@@ -15,6 +15,10 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
+for i in range(10):
+  print i
+  
+  
 # Header 1
 ## Header 2
 ### Header 3
