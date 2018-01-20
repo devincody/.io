@@ -10,6 +10,8 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 [img]http://www.sciweavers.org/tex2img.php?eq=%24%5Cpi%24&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0[/img]
 
+<img src="https://latex.codecogs.com/gif.latex?\pi&space;=&space;3.1415^{&plus;\infty}_{-\eta}" title="\pi = 3.1415^{+\infty}_{-\eta}" />
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
