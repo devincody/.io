@@ -20,6 +20,7 @@ Syntax highlighted code block
 
 
   
+[Another PAGE?](https://devincody.github.io/Blog/post1.md)
   
 # Header 1
 ## Header 2
