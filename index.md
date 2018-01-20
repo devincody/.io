@@ -10,6 +10,8 @@ I intend to use this space to rant about projects, and code.
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
+[Another PAGE?](https://devincody.github.io/Blog/post1.md)
+
 ```python
 for i in range(10):
   print i
@@ -20,7 +22,7 @@ Syntax highlighted code block
 
 
   
-[Another PAGE?](https://devincody.github.io/Blog/post1.md)
+
   
 # Header 1
 ## Header 2
