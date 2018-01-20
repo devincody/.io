@@ -8,6 +8,8 @@ You can use the [editor on GitHub](https://github.com/devincody/.io/edit/master/
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+[img]http://www.sciweavers.org/tex2img.php?eq=%24%5Cpi%24&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0[/img]
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
