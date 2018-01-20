@@ -11,7 +11,7 @@ More info to come.
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-[Another PAGE?](https://devincody.github.io/Blog/post1.html)
+[Another PAGE?](https://devincody.github.io/Blog/post1.md)
 
 ```python
 for i in range(10):
