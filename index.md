@@ -2,15 +2,9 @@
 
 I intend to use this space to rant about projects, and code.
 
-//## Welcome to GitHub Pages
+### Fourier Transforms
 
-You can use the [editor on GitHub](https://github.com/devincody/.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-[img]http://www.sciweavers.org/tex2img.php?eq=%24%5Cpi%24&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0[/img]
-
-<img src="https://latex.codecogs.com/gif.latex?\pi&space;=&space;3.1415^{&plus;\infty}_{-\eta}" title="\pi = 3.1415^{+\infty}_{-\eta}" />
+<img src="https://latex.codecogs.com/gif.latex?F(\omega)&space;=&space;\int_{-\infty}^{&plus;\infty}&space;f(t)&space;e^{j\omega&space;t}&space;d\,t" title="F(\omega) = \int_{-\infty}^{+\infty} f(t) e^{j\omega t} d\,t" />
 
 ### Markdown
 
