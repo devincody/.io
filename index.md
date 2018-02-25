@@ -15,7 +15,11 @@ quotes ""
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
+      [Another PAGE?](https://devincody.github.io/Blog/post1)
 [Another PAGE?](https://devincody.github.io/Blog/post1)
+
+
+
 
 ```python
 for i in range(10):
