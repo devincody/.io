@@ -8,6 +8,6 @@
 	
   I will start with the big punchline of radio interferometry and then work backwards to then justify everything else. So, are you ready for it? The big reveal? Ok, here it is: the most mind-blowing fact about radio astronomy (or optical astronomy for that matter) is that instead of directly observing the sky, radio interferometers measure the Fourier transform of the sky. Slow down, don’t leave just yet, let’s take a minute to break this down. The Fourier transform is a method of taking data which is represented in one way (i.e. a series of measurements over time, or a series of pixels across a spatial grid) and representing it in a different, but equally-valid way. When you take the Fourier transform of some data, no information is lost, the data has simply been rearranged. Simultaneously, there exists a method by which we can take some data which has been Fourier transformed and undo the Fourier transform to recover the original data. This procedure is called the inverse Fourier transform. The important thing to take away from this, is that if we measure the Fourier transform of the sky, then we can reconstruct an image of the sky brightness by taking the inverse Fourier transform of that data. But enough words, let’s look at some pictures.[^1]
 
-<img src=https://latex.codecogs.com/gif.latex?\mathfrak{Re}\{X[k]\}&space;=&space;\sum_{i=0}^{N-1}x[i]\cos(2\pi&space;k&space;i/N)/>
+<img src=https://latex.codecogs.com/gif.latex?\mathfrak{Re}\{X[k]\}&space;=&space;\sum_{i=0}^{N-1}x[i]\cos(2\pi&space;k&space;i/N) />
 
 [^1]:here is the footnote
