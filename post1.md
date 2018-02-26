@@ -27,7 +27,7 @@ Let’s see what this looks like mathematically. The equation for correlation be
 
 All this equation is doing is multiplying each term in the two sequences and adding up the result. The Fourier Transform is simply an extension of this equation. Lets look at the equation for the Fourier Transform.
 
-<img src="https://latex.codecogs.com/gif.latex?\mathfrak{Re}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\cos(2\pi&space;kn/N)" />
+<img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Re}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\cos(2\pi&space;kn/N)" />
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Im}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\sin(2\pi&space;kn/N)" />
 
 These equations might look scary, but let’s work through them together. Here x[n] (note that there’s a difference between little x and big X) is the signal that we are analyzing, and y[n] (from the correlation equation) has been replaced by cos(2piki/N). This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k. X[k] is simply the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact notation, X[k] is the representation of x[n] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again.
@@ -43,6 +43,22 @@ These equations might look scary, but let’s work through them together. Here x
   Furthermore, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain.
   
   Finally, we will now turn to Fig. 1, which is commonly the first image shown during lectures on Interferometry. Fig. 1 is fundamentally a blue-print for the design of an instrument which has “beam pattern” that approximates a test sinusoid. Suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave, then time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau where tau is calculated by the equation 
+
+<img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta) "/>
+Thus, if antenna 2 produces some waveform due to the radiation from s, given by:
+<img src="https://latex.codecogs.com/gif.latex?\large&space;v_2(t)&space;=&space;V\cos(\omega&space;t) "/>
+Then antenna 1 produces some time-shifted version of the same waveform:
+<img src="https://latex.codecogs.com/gif.latex?\large&space;v_1(t)&space;=&space;V\cos(\omega&space;(t-\tau)) "/>
+Finally, if we multiply these signals together and average them, we see that the resulting signal, R, is a function of tau:
+<img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau)"/>
+Re-writing this in terms of theta, we find that:
+
+<img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\cos(\theta))"/>
+
+
+
+
+
 
 
 #[^1][^1]:here is the footnote
