@@ -44,11 +44,11 @@ These equations might look scary, but let’s work through them together. Here x
   
   Finally, we will now turn to Fig. 1, which is commonly the first image shown during lectures on Interferometry. Fig. 1 is fundamentally a blue-print for the design of an instrument which has “beam pattern” that approximates a test sinusoid. Suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave, then time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau where tau is calculated by the equation 
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta) "/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta)"/>
 Thus, if antenna 2 produces some waveform due to the radiation from s, given by:
-<img src="https://latex.codecogs.com/gif.latex?\large&space;v_2(t)&space;=&space;V\cos(\omega&space;t) "/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;v_2(t)&space;=&space;V\cos(\omega&space;t)"/>
 Then antenna 1 produces some time-shifted version of the same waveform:
-<img src="https://latex.codecogs.com/gif.latex?\large&space;v_1(t)&space;=&space;V\cos(\omega&space;(t-\tau)) "/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;v_1(t)&space;=&space;V\cos(\omega&space;(t-\tau))"/>
 Finally, if we multiply these signals together and average them, we see that the resulting signal, R, is a function of tau:
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau)"/>
 Re-writing this in terms of theta, we find that:
