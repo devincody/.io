@@ -23,7 +23,7 @@ Mathematically, correlation is about as simple an operation as they come, and in
 
 Let’s see what this looks like mathematically. The equation for correlation between two signals, x[n] and y[n] is the following:
 
-<img alighn="center" src="https://latex.codecogs.com/gif.latex?\large&space;x\cdot&space;y&space;=&space;\sum_{n=1}^{N-1}x[n]y[n]" />
+<img align="center" src="https://latex.codecogs.com/gif.latex?\large&space;x\cdot&space;y&space;=&space;\sum_{n=1}^{N-1}x[n]y[n]" />
 
 All this equation is doing is multiplying each term in the two sequences and adding up the result. The Fourier Transform is simply an extension of this equation. Lets look at the equation for the Fourier Transform.
 
