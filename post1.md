@@ -23,7 +23,7 @@ Mathematically, correlation is about as simple an operation as they come, and in
 
 Let’s see what this looks like mathematically. The equation for correlation between two signals, x[n] and y[n] is the following:
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;x\cdot&space;y&space;=&space;\sum_{n=1}^{N-1}x[n]y[n]" />
+<img alighn="center" src="https://latex.codecogs.com/gif.latex?\large&space;x\cdot&space;y&space;=&space;\sum_{n=1}^{N-1}x[n]y[n]" />
 
 All this equation is doing is multiplying each term in the two sequences and adding up the result. The Fourier Transform is simply an extension of this equation. Lets look at the equation for the Fourier Transform.
 
@@ -45,7 +45,4 @@ These equations might look scary, but let’s work through them together. Here x
   Finally, we will now turn to Fig. 1, which is commonly the first image shown during lectures on Interferometry. Fig. 1 is fundamentally a blue-print for the design of an instrument which has “beam pattern” that approximates a test sinusoid. Suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave, then time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau where tau is calculated by the equation 
 
 
-<img src="https://latex.codecogs.com/gif.latex?F(\omega)&space;=&space;\int_{-\infty}^{&plus;\infty}&space;f(t)&space;e^{j\omega&space;t}&space;d\,t" title="F(\omega) = \int_{-\infty}^{+\infty} f(t) e^{j\omega t} d\,t" />
-
-[^1]
-[^1]:here is the footnote
+#[^1][^1]:here is the footnote
