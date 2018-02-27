@@ -1,5 +1,3 @@
-# An Engineer's Introduction to Radio Interferometry
-
 ![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/FT.png)
 
   As some of you may know, I’m currently a graduate student at the California Institute of Technology studying towards my Master of Science in Electrical Engineering. While I’m here, I’m working with Gregg Hallinan and Sandy Weinreb – two phenomenal instructors on a project called the Long Wavelength Array (LWA). The LWA is a 256-element interferometer in Owens Valley, CA which take radio images of the entire sky every 10 seconds. This project is particularly exciting for me because I’ve always been interested in how many distinct dishes can synthesize coherent images, sometimes with resolutions that cannot be achieved with single dish telescopes!
@@ -28,6 +26,7 @@ Let’s see what this looks like mathematically. The equation for correlation be
 All this equation is doing is multiplying each term in the two sequences and adding up the result. The Fourier Transform is simply an extension of this equation. Lets look at the equation for the Fourier Transform.
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Re}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\cos(2\pi&space;kn/N)" />
+
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Im}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\sin(2\pi&space;kn/N)" />
 
 These equations might look scary, but let’s work through them together. Here x[n] (note that there’s a difference between little x and big X) is the signal that we are analyzing, and y[n] (from the correlation equation) has been replaced by cos(2piki/N). This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k. X[k] is simply the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact notation, X[k] is the representation of x[n] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again.
