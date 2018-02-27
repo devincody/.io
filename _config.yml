@@ -1,5 +1,12 @@
 theme: minima
 
+title: The Blog
+author: Devin Cody
+email: devincody@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  This space will be used to discuss engineering, science, and programming. More info to come.
+
+
 
 github_username:  devincody
 linkedin_username: devincody
