@@ -1,4 +1,4 @@
-![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/_images/FT.png)
+![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/_images/FTwCap.png)
 
   As some of you may know, I’m currently a graduate student at the California Institute of Technology studying towards my Master of Science in Electrical Engineering. While I’m here, I’m working with Gregg Hallinan and Sandy Weinreb – two phenomenal instructors on a project called the Long Wavelength Array (LWA). The LWA is a 256-element interferometer in Owens Valley, CA which take radio images of the entire sky every 10 seconds. This project is particularly exciting for me because I’ve always been interested in how many distinct dishes can synthesize coherent images, sometimes with resolutions that cannot be achieved with single dish telescopes!
 
