@@ -20,6 +20,21 @@
 
 \begin{figure}
 \centering
+\includegraphics[width=\textwidth]{_images/DecompSynth.png}
+\caption{\textbf{ Decomposition-Synthesis Relationship |} A comparison between an input signal (left) and the 18 sinusoids (right) which can be used to reconstruct the original sequence. Generally, we say that the input image can be decomposed into the 18 signals on the right and similarly that the 18 signals can be used to synthesize the original signal. 
+}\label{fig:deco}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=.85\textwidth]{_images/FreqSpec.png}
+\caption{\textbf{Frequency Spectrum |} In Figure \ref{fig:deco}, we decomposed a signal into 18 sines and cosines with different frequencies and amplitudes. The frequencies of these sinusoids are predetermined by the length of the input signal and the amplitudes are determined by the Fourier transform. 
+}
+\end{figure}
+
+
+\begin{figure}
+\centering
 \includegraphics[width=\textwidth]{_images/FourierCorrelation3-m56p3-47p1.png}
 \caption{\textbf{Correlation of an input signal (top) and two sinusoids (middle) |} On the left, we show the result of correlating a particular input signal with a cosine wave with period 16. For correlation, each sample in the input signal is multiplied by the corresponding sample in the test sinusoid. The result of this multiplication is shown on the bottom in red. To complete the correlation, we simply sum across all the points in the red signal. On the right, the same input signal is correlated with another cosine, this time with a period of 8. Again, the element-wise multiplication of the two signals is shown on the bottom in red. For the Fourier transform, the input signal is correlated against 16 total sinusoids (8 sines and 8 cosines). The mathematics of the Fourier Transform are shown in equation ****}
 \end{figure}
@@ -33,19 +48,7 @@
 \end{figure}
 
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{_images/DecompSynth.png}
-\caption{\textbf{ Decomposition-Synthesis Relationship |} A comparison between an input signal (left) and the 18 sinusoids (right) which can be used to reconstruct the original sequence. Generally, we say that the input image can be decomposed into the 18 signals on the right and similarly that the 18 signals can be used to synthesize the original signal. 
-}\label{fig:deco}
-\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{_images/FreqSpec.png}
-\caption{\textbf{Frequency Spectrum |} In Figure \ref{fig:deco}, we decomposed a signal into 18 sines and cosines with different frequencies and amplitudes. The frequencies of these sinusoids are predetermined by the length of the input signal and the amplitudes are determined by the Fourier transform. 
-}
-\end{figure}
 
 
 
