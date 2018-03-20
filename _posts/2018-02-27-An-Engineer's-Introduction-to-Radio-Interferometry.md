@@ -12,7 +12,9 @@
 	
   But how, then, does an interferometer measure the Fourier transform of the sky? To answer this question, we will start by examining how the one-dimensional Fourier transform works. At its core, the one-dimensional (Discrite [^2]) Fourier transform states that any signal, that is, any sequence of N data points (e.g. measurements of position, a stock’s value over time, or pixel intensities in a 1-D image) with regular spacing can be represented by (decomposed into) the sum of N/2+1 sines and N/2+1 cosines. Strictly speaking, these are the properties of the discrete Fourier Transform (DFT) however, the Fourier Transform, which exists in the domain of continuous functions is equally valid here.
 
-![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/DecopSynthwCap.png)
+![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/DecompSynthwCap.png)
+
+![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/FreqSpecwCap.png)
 
   Fig 3. (Reproduced from dspguide.com) shows an example of this relationship with a signal of length 16. On the left of Fig 3. we show a 16-point signal which is decomposed into the (16/2+1 =) 9 sine and 9 cosine waves shown on the right. Equivalently, we can say that the 18 signals on the right can be synthesized (summed) to form the signal on the left. These two representations are exactly equivalent in the information that they contain. As Steven Smith, author of “The Scientist and Engineer’s Guide to Digital Signal Processing”, points out, “There is no difference between the signal in (a) and the sum of the signals in (b), just as there is no difference between 7 and 3+4”.
 
@@ -35,7 +37,7 @@ These equations might look scary, but let’s work through them together. Here x
 
   Here we’ve discussed the Discrete Fourier transform (Discrete time and frequency), however the same analysis is valid for the continuous-time Fourier transform.
 
-![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/_images/FourierCorrelationwCap.png)
+![Image of Fourier Correlation Example](https://raw.githubusercontent.com/devincody/Blog/master/_images/FourierCorrelationwCap.png)
 
   To see what this looks like, lets look at the figure above. Here we show two test sinusoids, one cosine and one sine. Additionally, the sinusoids have 2 different frequencies, one for k=1 and one for k = 2. First we correlate against the test sine wave, y_{k=1}[n], by multiplying all of the values in our sequence x[n] with all of the values in the test sinusoid. The result of this multiplication is shown in the bottom left figure. Afterwards, we sum all of the products together which gives us a single scalar value. This completes the correlation. Identically, the input signal can be correlated against a test cosine (such as the one on the left) by multiplying each value of x[n] by each value in y[n]. When we have done the above operation for a sine and cosine for each frequency, we will have successfully computed the Fourier transform of the signal.
   And that’s all there is to the one-dimensional Fourier transform! We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
@@ -45,6 +47,9 @@ These equations might look scary, but let’s work through them together. Here x
 
   Furthermore, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain.
   
+![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/AntGeometrywCap.png)
+
+
   Finally, we will now turn to Fig. 1, which is commonly the first image shown during lectures on Interferometry. Fig. 1 is fundamentally a blue-print for the design of an instrument which has “beam pattern” that approximates a test sinusoid. Suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave, then time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau where tau is calculated by the equation 
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta)"/>
@@ -65,7 +70,7 @@ Re-writing this in terms of theta, we find that:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\cos(\theta))"/>
 
-
+![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/FringePatternwCap.png)
 
 
 
