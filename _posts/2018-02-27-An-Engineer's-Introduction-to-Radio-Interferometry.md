@@ -45,6 +45,9 @@ These equations might look scary, but let’s work through them together. Here x
 
  Now, let’s return to radio astronomy and attempt to answer the question that spurred this adventure into the Fourier transform in the first place: how does an interferometer measure the Fourier transform of the sky? The answer, of course, is with test sinusoids! Supposing we had an “instrument” with an antenna pattern that looked like the sinusoid shown in Fig. 4, then by observing the sky with this instrument, the signal coming from this instrument would be proportional to the Fourier amplitude needed for the Fourier decomposition. Remember that an antenna pattern (also known as a beam pattern) tells us the directional dependence of the antenna’s sensitivity. It tells us how much power is picked up from every direction around the antenna. (see http://www.antenna-theory.com/basics/radpattern.php for review)
 
+![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/TwoTestSinusoidswCap.png)
+
+
   Furthermore, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain.
   
 ![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/AntGeometrywCap.png)
