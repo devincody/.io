@@ -3,6 +3,8 @@
 
   Radio interferometry, often times comes off as a difficult concept, but it needn’t be that way. In this blog post, I will attempt to give a more intuitive introduction to radio interferometry. Some background in the Fourier transform will be helpful, but not strictly necessary. I will also assume some basic knowledge of astronomy. 
 	
+### Starting with the Punchline
+	
   In this blog post, I will start with the big punchline of radio interferometry and then work backwards to then justify everything else. So, are you ready for it? The big reveal? Ok, here it is: the most mind-blowing fact about radio astronomy is that instead of directly observing the sky, radio interferometers measure the Fourier transform of the sky[^1]. Slow down, don’t leave just yet, let’s take a minute to break this down. The Fourier transform is a method of taking a sequence of data which is represented in one way (i.e. a series of measurements over time, a series of pixels across a spatial grid, or a signal coming from a sensor) and representing it in a different, but equally-valid way. When you take the Fourier transform of some data, no information is lost. The data has simply been rearranged. Simultaneously, there exists a method by which we can take some data which has been Fourier transformed and undo the Fourier transform to recover the original data. This procedure is called the inverse Fourier transform. The important thing to take away from this, is that if we measure the Fourier transform of the sky, then we can reconstruct an map (image) of the sky brightness by taking the inverse Fourier transform of that data. But enough words, let’s look at some pictures.
 
 ![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/_images/FTwCap.png)
@@ -13,7 +15,7 @@
 	
   But how, then, does an interferometer measure the Fourier transform of the sky? To answer this question, we will start by examining how the one-dimensional Fourier transform works. 
   
-  ### (Discrite) Fourier Transform
+### (Discrite) Fourier Transform
   
   At its core, the one-dimensional (Discrite[^2]) Fourier transform states that any signal, that is, any sequence of N data points (e.g. measurements of position, a stock’s value over time, or pixel intensities in a 1-D image) with regular spacing can be represented by (decomposed into) a sum of N/2+1 sines and N/2+1 cosines. 
 ![Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/DecompSynthwCap.png)
