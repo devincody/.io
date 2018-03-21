@@ -15,7 +15,7 @@
 	
   But how, then, does an interferometer measure the Fourier transform of the sky? To answer this question, we will start by examining how the one-dimensional Fourier transform works. 
   
-### (Discrite) Fourier Transform
+### The (Discrite) Fourier Transform
   
   At its core, the one-dimensional (Discrite[^2]) Fourier transform states that any signal, that is, any sequence of N data points (e.g. measurements of position, a stock’s value over time, or pixel intensities in a 1-D image) with regular spacing can be represented by (decomposed into) a sum of N/2+1 sines and N/2+1 cosines. 
 ![Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/DecompSynthwCap.png)
@@ -40,7 +40,7 @@ All this equation is doing is multiplying each term in the two sequences and add
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Re}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\cos(2\pi&space;kn/N)" />
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Im}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\sin(2\pi&space;kn/N)." /> [^4]
+<img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Im}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\sin(2\pi&space;kn/N)" /> [^4].
 
 These equations might look scary, but let’s work through them together. Here x[n] (note that little x and big X are different even though the represent the same signal) is the signal that we are analyzing, and y[n] has been replaced by cos(2pikn/N). This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k. X[k] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, X[k] is the representation of x[n] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given X[k], we can synthesize x[n] using the inverse Fourier transform
 
