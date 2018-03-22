@@ -1,7 +1,7 @@
 
   As some of you may know, I’m currently a graduate student at the California Institute of Technology studying towards my Master of Science in Electrical Engineering. While I’m here, I’m working with Gregg Hallinan and Sandy Weinreb – two phenomenal instructors on a project called the Long Wavelength Array (LWA). The LWA is a 256-element interferometer in Owens Valley, CA which takes radio images of the entire sky every 10 seconds. This project is particularly exciting for me because I’ve always been interested in how many distinct dishes can synthesize coherent images, sometimes with resolutions that cannot be achieved with single dish telescopes!
 
-  Radio interferometry, often times comes off as a difficult concept, but it needn’t be that way. In this blog post, I will attempt to give a more intuitive introduction to radio interferometry. Some background in the Fourier transform will be helpful, but not strictly necessary. I will also assume some basic knowledge of astronomy. 
+  Radio interferometry, often times comes off as a difficult concept, but it needn’t be that way. In this blog post, I will attempt to give a more intuitive introduction to radio interferometry, one that, in particular, might help a budding radio engineer learn more about this fascinating field. Some background in the Fourier transform will be helpful, but not strictly necessary. I will also assume some basic knowledge of astronomy. 
 	
 ### Starting with the Punchline
 	
@@ -110,7 +110,7 @@ Re-writing this in terms of theta, we find that:
 
 
 
-[^1]: This can also be done in optical astronomy.
+[^1]: As it turns out, optical telescopes can also be thought of as interferometers, that is to say, instruments which measure the fourier transform of the sky.
 [^2]: Strictly speaking, these are the properties of the discrete Fourier Transform (DFT) however, the Fourier Transform, which exists in the domain of continuous functions can be though of as a generalization of these ideas.
 [^3]: Because my background is in Electrical Engineering, I will often talk about "signals", "sequences", or "series", which can be defined as any sequence of datapoints in the "time" domain. Conversely, I will say "frequency spectrum" when talking about a set of datapoints which represent information in the "frequency" domain.
 [^4]: Most equations for the discrite fourier transform include the factor of 2/N as part of the inverse fourier transform rather than the forward transform.
