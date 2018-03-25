@@ -44,7 +44,11 @@ All this equation is doing is multiplying each term in the two sequences and add
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Im}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\sin(2\pi&space;kn/N)." />
 
-These equations might look scary, but let’s work through them together. Here x[n] (note that little x and big X are different even though the represent the same signal) is the signal that we are analyzing, and y[n] has been replaced by <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(2\pi&space;kn/N)" title="\cos(2\pi kn/N)" />. This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k. X[k] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, X[k] is the representation of x[n] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given X[k], we can synthesize x[n] using the inverse Fourier transform
+where
+
+<img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]" />
+
+These equations might look scary, but let’s work through them together. Here x[n] (note that little x and big X are different even though they represent the same signal) is the signal that we are analyzing, and y[n] has been replaced by <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(2\pi&space;kn/N)" title="\cos(2\pi kn/N)" />. This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k and the third equation (<img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]" />) tells us that it takes integer values from 0 to N/2 inclusive. X[k] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, X[k] is the representation of x[n] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given X[k], we can synthesize x[n] using the inverse Fourier transform
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;x[n]&space;=&space;\sum_{k=0}^{N/2}\mathfrak{Re}\{X[k]\}\cos(2\pi&space;kn/N) + \mathfrak{Im}\{X[k]\}\sin(2\pi&space;kn/N)." />
 
@@ -54,15 +58,19 @@ Let's now take a deeper look at the mechanics of correlation as used in the Four
 
 ![Image of Fourier Correlation Example](https://raw.githubusercontent.com/devincody/Blog/master/_images/FourierCorrelationwCap.png)
 
-   Fig. 4 shows the correlation of one input signal shown on the top in blue (x[n]) with two different test sinusoids shown in the middle in green. The test sinusoid on the left is a sine wave with frequency k = 1 and amplitude 1 while the one on the right is a cosine with frequency k = 2 and amplitude 1. As described in the correlation equation, we simply multiply all of the values in our sequence x[n] with all of the values in the test sinusoid. The result of this multiplication is shown on the bottom for both of these test sinusoids. To complete the correlation, we sum all of the products together which gives us a single scalar value. Once we have done the above operation for a sine and cosine at each frequency, we will have all the information to write down the Fourier transform of the signal.
+   Fig. 4 shows the correlation of one input signal with two different test sinusoids. The test sinusoid on the left is a sine wave with frequency k = 1 and amplitude 1 while the one on the right is a cosine with frequency k = 2 and amplitude 1. As described in the correlation equation, we multiply all of the values in our sequence x[n] with all of the values in the test sinusoid. The result of this multiplication is shown on the bottom for both of these test sinusoids. To complete the correlation, we sum all of the products together which gives us a single scalar value. Once we have done the above operation for a sine and cosine at each frequency, we will have all the information to write down the Fourier transform of the signal.
    
 ### Correlation on the Sky: Putting it All Together
 
-  Now that we've gotten a better understanding of the Fourier transform, We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids (one sine and one cosine at each of the N/2 frequencies) and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
+  Now that we've gotten a better understanding of the Fourier transform, We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids (one sine and one cosine at each of the N/2+1 frequencies, recall that <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]" />) and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
   
-  For the two-dimensional Fourier transform, we do the exact same thing, except this time, our test sinusoids look like the one shown in Fig. 5 and we have to sum over two-dimensions (one for the x direction and one for the y direction). For the two-dimensional Fourier transform, the “direction” of the sinusoid (i.e. direction of maximal variation) varies by 360 degrees, in Fig. 5 we show two frequencies and two directions.
+  For the two-dimensional Fourier transform, we do the exact same thing, except this time, our test sinusoids look like the one shown in Fig. 5 where the white portions of the image are the peaks of the test sinusoid and the black portions are the dips of the test sinusoid. Furthermore, we have to sum over two-dimensions (one for the x direction and one for the y direction). For the two-dimensional Fourier transform, the “direction” of the sinusoid (that is, the direction of maximal variation) varies by 360 degrees, in Fig. 5 we show two frequencies and two directions.
 
- Now, let’s return to radio astronomy and attempt to answer the question that spurred this adventure into the Fourier transform in the first place: how does an interferometer measure the Fourier transform of the sky? The answer, of course, is with test sinusoids! Supposing we had an “instrument” with an antenna pattern that looked like the sinusoid shown in Fig. 5, then by observing the sky with this instrument, the signal coming from this instrument would be proportional to the Fourier amplitude needed for the Fourier decomposition. Remember that an antenna pattern (also known as a beam pattern) tells us the directional dependence of the antenna’s sensitivity. It tells us how much power is picked up from every direction around the antenna. (see http://www.antenna-theory.com/basics/radpattern.php for review)
+
+ NoNow, let’s return to radio astronomy and attempt to answer the question that spurred this adventure into the Fourier transform in the first place: how does an interferometer measure the Fourier transform of the sky? The answer, of course, is with test sinusoids! Supposing we had an “instrument” with an antenna pattern that looked like the sinusoid shown in Fig. 5, then by observing the sky with this instrument, the signal coming from this instrument would be proportional to the Fourier amplitude needed for the Fourier decomposition. Remember that an antenna pattern (also known as a beam pattern) tells us the directional dependence of the antenna’s sensitivity. Therefore, within the context of the 2D test sinusoids, the white portions of the image correspond to portions of the sky where the antenna is highly sensitive and the black portions denote areas where the antenna is *negatively* sensitive.
+ (see http://www.antenna-theory.com/basics/radpattern.php for review)
+
+Let’s examine what happens to images when they are multiplied by a beam pattern. 
 
 ![Two-dimensional Test Sinusoids](https://raw.githubusercontent.com/devincody/Blog/master/_images/TwoTestSinusoidswCap.png)
 
@@ -73,11 +81,11 @@ Let's now take a deeper look at the mechanics of correlation as used in the Four
 
 ### The Fringe Pattern
 
-  Finally, we will now turn to Fig. 6, which is commonly the first image shown during lectures on Interferometry. Fig. 6 is fundamentally a blue-print for the design of an instrument which has “beam pattern” that approximates a test sinusoid. 
+  Finally, we will now turn to Fig. 6, which is commonly the first image shown during lectures on Interferometry. Fig. 6 is fundamentally a blueprint for the design of an instrument which has “beam pattern” that approximates a test sinusoid. 
   
-  The reasoning goes as follows: suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave, then the time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau_g where tau_g is calculated by the equation 
+  The reasoning goes as follows: suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object (source) in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave[^5], then the time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau_g where tau_g is calculated by the equation 
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau_g&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta)"/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau_g&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\sin(\theta)"/>
 
 Thus, if antenna 2 produces some waveform due to the radiation from s, given by:
 
@@ -87,23 +95,43 @@ Then antenna 1 produces some time-shifted version of the same waveform:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;v_1(t)&space;=&space;V\cos(\omega&space;(t-\tau_g))"/>
 
-Finally, if we multiply these signals together and average them (such that the high frequency components are removed), we see that the resulting signal, R, is a function of tau_g:
+Next, we multiply these signals together:
+
+<img src="https://latex.codecogs.com/gif.latex?\large&space;v_{12}(t)&space;=&space;V^2\cos(\omega&space;t)\cos(\omega&space;(t-\tau_g))"/>
+
+applying a handy trig identity
+
+<img src="https://latex.codecogs.com/gif.latex?\large&space;v_{12}(t)&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)&space;+&space;\cos(\omega&space;(2t-\tau_g))"/>
+
+and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of tau_g:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)"/>
 
 Re-writing this in terms of theta, we find that:
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\cos(\theta)/c)"/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\sin(\theta)/c)"/>
 
-  This, at long-last, is our test sinusoid (traditionally, this is known as a fringe pattern). As we sweep theta from one side of the sky to the other, the magnitude of the signal will vary in a sinusoidal manner. The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Put another way, this instrument has a sinusoidal beam pattern. Now, while this pattern is not perfectly sinusoidal, with some clever manipulations, it can be made to work perfectly well for radio interferometry.
+  This, at long-last, is our test sinusoid (traditionally, this is known as a fringe pattern). As we sweep theta from one side of the sky to the other, the magnitude of the signal will vary in a sinusoidal manner. The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Put another way, this instrument has a sinusoidal beam pattern.
  
-
-  But, wait, you might say, this doesn’t look like the two-dimensional pattern shown previously! And you’d be right, they do not look the same. However, in our analysis of Fig. 6, we assumed that the direction of the source, s, was directly overhead of the two antennas. This need not be the case. If we are careful about our analysis, we will see that if the source is not directly overhead, but rotated out of the plane (defined by the antennas and the original source position) by some angle, phi, we will still obtain the same time delay, tau, and therefore have the same fringe pattern for any phi.
+  But, wait, you might say, Fig. 7 doesn’t look like the two-dimensional pattern shown in Fig. 5! And you’d be right, they do not look the same; for starters, Fig. 7 is a one-dimensional pattern, and second, Fig. 7 is not a pure cosinusoidal pattern. The answer to the first observation is that the equation for the test sinusoid plotted in Fig. 7, R, actually *is* a 2-dimensional pattern, we simply choose to only plot R in one-dimension (i.e. in theta). If we let \phi be the 2nd angle of a coordinate system where \phi is orthogonal to \theta, then R does not depend on phi (notice how tau_g only depends on theta). Finally, if we plot R as a function of theta and phi, then we will indeed find that R looks like a 2D test sinusoid. 
   
+  We will address the second observation in two ways. The first is notice that Fig. 7 looks like a cosine for small thetas and only when theta gets large do we notice any distortion. This suggests that if we are able to some how restrict our field of view then our signal will no longer look distorted. Further more, the equation for R agrees with this interpretation. If we restrict our field of view (i.e. only consider small thetas), then we can apply a small angle approximation for sin(\theta) such that R is a pure cosine given by
   
-  Lastly, you may wonder how we can generate all the other test sinusoides. Notice that the spatial frequency (that is, how rapidly the signal peaks and dips as a function of s) of our test sinusoid, is dependent on b, the length and direction of the baseline between the antennas. Therefore, although any given pair of antennas is only able to produce one baseline (assuming they don’t move), we can add additional antennas to produce additional baselines and more test sinusoids!
+  <img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\theta/c)"/>
+  
+  The second method for addressing this distortion is far more devious and more similar to what is actually done in practice. Instead of considering R as a function of \theta, we defined new variables, u and v, which are given by the relations u = \sin(\theta) and v = \cos(\phi). Now our two spatial dimensions are not directly functions of \theta and \phi, but in their cosines, u and v
+  
+<img src="https://latex.codecogs.com/gif.latex?\large&space;R(u,v)&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|u/c)"/>
+  
+As if by magic, our test sinusoid is no longer distorted. Note that we restrict theta and phi to be -90 to +90 such that the mappings from theta to sin(theta) and phi to cos(phi) is one-to-one, that is to say there is exactly one value of sin(theta) for every value of theta and the same goes for phi. This concept is known as "direction cosines"
+  
+  Lastly, you may wonder how we can generate all the other test sinusoides. Notice that the spatial frequency (that is, how rapidly the signal peaks and dips as a function of s) of our test sinusoid, is dependent on b, the length and direction[^6] of the baseline between the antennas. Therefore, although any given pair of antennas is only able to produce one baseline (assuming the antennas don’t move), we can add additional antennas to produce additional baselines and more test sinusoids!
+  
+  This completes my (hopefully) intuitive approach to interferometry. I hope you enjoy reading this as much as I enjoyed writing it. To maximize simplicity, I inevitably had to cut out many interesting and exciting (some might even say critical) aspects of interferometry. However, those details are recorded in greater depth and eloquence than I could ever hope to achieve in such texts as “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr. and “Essential Radio Astronomy” by James Justin Condon and Scott M. Ransom. I would also highly recommend “The Scientist and Engineer’s Guide to Digital Signal Processing” by Steven Smith, a book that was highly influential on my approach to the Fourier transform.
 
-  This completes my (hopefully) intuitive approach to interferometry. I hope you enjoy reading this as much as I enjoyed writing it. To maximize simplicity, I inevitably had to cut out many interesting and exciting (some might even say critical) aspects of interferometry. However, those details are recorded in greater depth and eloquence than I could ever hope to achieve in such texts as “Interferometry and Synthesis” by Moran and “Essential Radio Astronomy” by James Justin Condon and Scott M. Ransom. I would also highly recommend “The Scientist and Engineer’s Guide to Digital Signal Processing” by Steven Smith, a book that was highly influential on my approach to this subject. 
+  Please feel free to connect with me about this post or anything else that I'm working on if you have comments! You can reach me at:
+
+
 
 
 ![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/FringePatternwCap.png)
@@ -116,6 +144,6 @@ Re-writing this in terms of theta, we find that:
 [^2]: Strictly speaking, these are the properties of the discrete Fourier Transform (DFT) however, the Fourier Transform, which exists in the domain of continuous functions can be though of as a generalization of these ideas.
 [^3]: Because my background is in Electrical Engineering, I will often talk about "signals", "sequences", or "series", which can be defined as any sequence of datapoints in the "time" domain. Conversely, I will say "frequency spectrum" when talking about a set of datapoints which represent information in the "frequency" domain.
 [^4]: Most equations for the discrite fourier transform include the factor of 2/N as part of the inverse fourier transform rather than the forward transform.
-
-
+[^5]: Plane waves are waves that have traveled far enough from their origin that they have negligible curvature. By way of example, consider a rock dropped into a still lake. If the rock is dropped close to the shore, then the ripples will hit two points on the shore line at different times (assuming the points are not equidistant from the rock). Conversely if the rock is dropped far from the shore, then the ripples will hit the two points at approximately the same time. At such a distance, the ripples (waves) are planar and are considered to be in the *far-field*. For electromagnetic waves, the same concept applies except in this case, our metaphorical lake is quite literally the size of the universe.
+[^6]: The direction of the baseline additionally changes the "direction" of the test sinusoids. To see this, remember that \theta is defined in the plane defined by the baseline between the two antennas and a vector pointing towards the zenith. Therefore, we can change the orientation of this plane relative to some global coordinate system by chaning the baseline direction. This will ultimately give us all 360 degrees of test sinusoids that we need.
 
