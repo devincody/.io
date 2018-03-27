@@ -21,7 +21,6 @@ Radio interferometry often times comes off as a difficult concept, but it doesn�
   
   At its core, the one-dimensional (Discrete[^2]) Fourier transform states that any signal, that is, any sequence of N data points (e.g. measurements of position, a stock’s value over time, or pixel intensities in a 1-D image) with regular spacing can be represented by (decomposed into) a sum of N/2+1 sines and N/2+1 cosines. 
 ![Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/DecompSynthwCap.png)
-#make summation more visible
 
   Fig 2. (inspired by a similar figure from dspguide.com) shows an example of this relationship with a signal[^3] of length 16. On the left side of Fig 2. we show a 16-point signal which is decomposed into (16/2+1 =) 9 sine and 9 cosine waves as shown on the right. Equivalently, we can say that the 18 signals on the right can be synthesized (summed) to form the signal on the left. These two representations are *exactly* equivalent in the information that they contain. As Steven Smith, author of “The Scientist and Engineer’s Guide to Digital Signal Processing”, points out, “There is no difference between the [original signal] and the sum of the signals in [the decomposition], just as there is no difference between 7 and 3+4”.
 
@@ -72,13 +71,15 @@ Let's now take a deeper look at the mechanics of correlation as used in the Four
 
 Let’s examine what happens visually to images when they are multiplied by a beam pattern as part of a two-dimension correlation. Fig. 5a shows the ultimate result of this multiplication. When multiplied by a gaussian, the center of the image remains intact while the edges fade away. When multiplied by the test sinusoid, a distinctive zebra pattern arises because the test sinusoid alternates between both positive and negative values. As with the one-dimensional case, we need to add all the values in these two images (matricies) to end up with one final scalar value.
 
+![Modulated Images of Galaxy](https://raw.githubusercontent.com/devincody/Blog/master/_images/ModulatedBWGalaxwCap.png)
+
   Furthermore, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain.
   
 ![Geometric origin of fringe pattern](https://raw.githubusercontent.com/devincody/Blog/master/_images/AntGeometrywCap.png)
 
 ### The Fringe Pattern
 
-  Finally, we will now turn to Fig. 6, which is commonly the first image shown during lectures on Interferometry. Fig. 6 is fundamentally a blueprint for the design of an instrument which has “beam pattern” that approximates a test sinusoid. 
+  Finally, we will now turn to Fig. 7, which is commonly the first image shown during lectures on Interferometry. Fig. 7 is fundamentally a blueprint for the design of an instrument which has “beam pattern” that approximates a test sinusoid. 
   
   The reasoning goes as follows: suppose we have two antennas, separated by some distance b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object (source) in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave[^5], then the time delay between when the radio telescope number 2 receives the signal and when the first telescope receives the signal is given by tau_g where tau_g is calculated by the equation 
 
@@ -108,11 +109,11 @@ Re-writing this in terms of theta, we find that:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\cos(\theta)/c)"/>
 
-  Fig. 7 shows R as we sweep theta from one side of the sky to the other. This, at long-last, is our test sinusoid (in proper radio astronomy nomenclature, this beam pattern is closely related to the fringe pattern[^7]). As required by our general knowledge of test sinusoids, the magnitude of the signal varies in a sinusoidal manner. The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Put another way, this instrument has a sinusoidal beam pattern.
+  Fig. 8 plots the above equation for R as we sweep theta from one side of the sky to the other. This, at long-last, is our test sinusoid (in proper radio astronomy nomenclature, this an interferometer beam pattern.  This beam pattern is closely related to the fringe pattern[^7]). As required by our general knowledge of test sinusoids, the magnitude of the signal varies in a sinusoidal manner. The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Put another way, this instrument has a sinusoidal beam pattern.
  
 ![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/FringePatternwCap.png)
  
-  But, wait, you might say, Fig. 7 doesn’t look like the two-dimensional pattern shown in Fig. 5! And you’d be right, they do not look the same; for starters, Fig. 7 is a one-dimensional pattern, and second, Fig. 7 is not a pure cosinusoidal pattern. The answer to the first observation is that the equation for the test sinusoid plotted in Fig. 7, R, actually *is* a 2-dimensional pattern, we simply choose to only plot R in one-dimension (i.e. in theta). If we let \phi be the 2nd angle of a coordinate system where \phi is orthogonal to \theta, then R does not depend on phi (notice how tau_g only depends on theta). Finally, if we plot R as a function of theta and phi, then we will indeed find that R looks like a 2D test sinusoid. 
+  But, wait, you might say, Fig. 8 doesn’t look like the two-dimensional pattern shown in Fig. 5! And you’d be right, they do not look the same; for starters, Fig. 8 is a one-dimensional pattern, and second, Fig. 8 is not a pure cosinusoidal pattern. The answer to the first observation is that the equation for the test sinusoid plotted in Fig. 8, R, actually *is* a 2-dimensional pattern, we simply choose to only plot R in one-dimension (i.e. in theta). If we let \phi be the 2nd angle of a coordinate system where \phi is orthogonal to \theta, then R does not depend on phi (notice how tau_g only depends on theta). Finally, if we plot R as a function of theta and phi, then we will indeed find that R looks like a 2D test sinusoid. 
   
   We will address the second observation using a bit of a sly trick. First, notice that the only difference between our equation for R and a pure cosine is that R is a function of cos(\theta) and not theta. If we were somehow able to removed the cosine, then we would have an ideal sinusoidal testing pattern. As it turns out, we can accomplish this with a transformation of variables: instead of considering R as a function of \theta, we define new variables, u and v, given by the relations u = \cos(\theta) and v = \cos(\phi). Now our two spatial dimensions are not directly functions of \theta and \phi, but in their cosines, u and v
   
