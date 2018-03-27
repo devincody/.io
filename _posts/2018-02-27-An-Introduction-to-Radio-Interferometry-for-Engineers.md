@@ -10,9 +10,8 @@ Radio interferometry often times comes off as a difficult concept, but it doesn�
   In this blog post, I will start with the big punchline of radio interferometry and then work backwards to then justify everything else. So, are you ready for it? The big reveal? Ok, here it is: the most mind-blowing fact about radio astronomy is that instead of directly observing the sky, radio interferometers measure the Fourier transform of the sky. Slow down, don’t leave just yet, let’s take a minute to break this down. The Fourier transform is a method of taking a sequence of data which is represented in one way (i.e. a series of measurements over time, a signal coming from a sensor, or series of pixels across a spatial grid[^1]) and representing it in a different, but equally valid way. When you take the Fourier transform of some data, no information is lost. The data has simply been rearranged. Simultaneously, there exists a method by which we can take some data which has been Fourier transformed and undo the Fourier transform to recover the original data. This procedure is called the inverse Fourier transform. The important thing to take away from this, is that if we measure the Fourier transform of the sky, then we can reconstruct an map (image) of the sky brightness by taking the inverse Fourier transform of that data. But enough words, let’s look at some pictures.
 
 ![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/_images/FTwCap.png)
-#include footnote about dB scale
 
-  Fig. 1 shows two entirely equivalent, equally-valid representations of a galaxy. The image on the left is an image you might find in an Astronomy 101 textbook and the image on the right is simply the Fourier transform of the image on the left. It is just as true, however, to say that the image on the left is the inverse Fourier transform of the image on the right. 
+  Fig. 1 shows two entirely equivalent, equally-valid representations of a galaxy. The image on the left is an image you might find in an Astronomy 101 textbook and the image on the right is simply the Fourier transform of the image on the left[^9]. It is just as true, however, to say that the image on the left is the inverse Fourier transform of the image on the right. 
 	
   Radio interferometry, is a method of collecting information about the sky in the “Fourier” domain (i.e. information similar to that shown on the right in Fig. 1). Once we have collected this information, we can then use a computer to compute the inverse Fourier transform of the data and to reconstruct a picture of the sky. 
 	
@@ -62,7 +61,7 @@ Let's now take a deeper look at the mechanics of correlation as used in the Four
    
 ### Correlation on the Sky: Putting it All Together
 
-  Now that we've gotten a better understanding of the Fourier transform, We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids (one sine and one cosine at each of the N/2+1 frequencies, recall that <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]" /> and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
+  Now that we've gotten a better understanding of the Fourier transform, We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids (one sine and one cosine at each of the N/2+1 frequencies since <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]") title="k \in \mathbb{Z} \cap [0, N/2 ]" /> and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
   
   For the two-dimensional Fourier transform, we do the exact same thing, except this time, our test sinusoids look like the one shown in Fig. 5 where the white portions of the image are the peaks of the test sinusoid and the black portions are the dips of the test sinusoid. Furthermore, we have to sum over two-dimensions (one for the x direction and one for the y direction). For the two-dimensional Fourier transform, the “direction” of the sinusoid (that is, the direction of maximal variation) varies by 360 degrees, in Fig. 5 we show two frequencies and two directions.
 
@@ -125,7 +124,7 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
   
   This completes my (hopefully) intuitive approach to interferometry. I hope you enjoy reading this as much as I enjoyed writing it. To maximize simplicity, I inevitably had to cut out many interesting and exciting (some might even say critical) aspects of interferometry. However, those details are recorded in greater depth and eloquence than I could ever hope to achieve in such texts as “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr. and “Essential Radio Astronomy” by James Justin Condon and Scott M. Ransom. I would also highly recommend “The Scientist and Engineer’s Guide to Digital Signal Processing” by Steven Smith, a book that was highly influential on my approach to the Fourier transform.
 
-  Please feel free to connect with me about this post or anything else that I'm working on if you have comments! You can reach me at:
+  Please feel free to connect with me about this post or anything else that I'm working on if you have comments! You can reach me at: devin.cody@gmail.com
 
 
 
@@ -139,3 +138,4 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [^6]: The direction of the baseline additionally changes the "direction" of the test sinusoids. To see this, remember that \theta is defined in the plane defined by the baseline between the two antennas and a vector pointing towards the zenith. Therefore, we can change the orientation of this plane relative to some global coordinate system by chaning the baseline direction. This will ultimately give us all 360 degrees of test sinusoids that we need.
 [^7]: In radio astronomy terms, fringe patterns are temporally varying power signals caused by radio sources transiting the previously discussed beam pattern.
 [^8]:This concept is known as "direction cosines"
+[^9]: For those of you following along at home, I've plotted the Fourier transform image in dB (logarithmic) to increase dynamic range.
