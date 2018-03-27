@@ -103,7 +103,7 @@ applying a handy trigonometric product identity
 
 and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of tau_g:
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;\lt&space;V_{12}\gt&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)"/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;R&space;=&space;<V_{12}>&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)"/>
 
 Re-writing this in terms of theta, we find that:
 
