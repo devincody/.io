@@ -153,5 +153,5 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [xn]: https://latex.codecogs.com/gif.latex?x[n] "x[n]"
 [Xk]: https://latex.codecogs.com/gif.latex?X[k] "X[k]"
 [yn]: https://latex.codecogs.com/gif.latex?y[n] "y[n]"
-[vecb]: https://latex.codecogs.com/gif.latex?\vec{b} "Vecb"
+[vecb]: https://latex.codes.com/gif.latex?\vec{b} "Vecb"
 [hats]: https://latex.codecogs.com/gif.latex?\hat{s} "hats"
