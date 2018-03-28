@@ -44,9 +44,9 @@ All this equation is doing is multiplying each term in the two sequences and add
 
 where
 
-<img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]." />
+![kinZ]
 
-These equations might look scary, but let’s work through them together. Here ![xn] (note that little x and big X are different even though they represent the same signal) is the signal that we are analyzing, and ![yn] has been replaced by <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(2\pi&space;kn/N)" title="\cos(2\pi kn/N)" />. This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k and the third equation (<img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]" />) tells us that it takes integer values between 0 to N/2 inclusive. ![Xk] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, ![Xk] is the representation of ![xn] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given ![Xk], we can use the inverse Fourier transform to synthesize x[n]
+These equations might look scary, but let’s work through them together. Here ![xn] (note that little x and big X are different even though they represent the same signal) is the signal that we are analyzing, and ![yn] has been replaced by <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(2\pi&space;kn/N)" title="\cos(2\pi kn/N)" />. This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k and the third equation (![kinZ]) tells us that it takes integer values between 0 to N/2 inclusive. ![Xk] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, ![Xk] is the representation of ![xn] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given ![Xk], we can use the inverse Fourier transform to synthesize x[n]
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;x[n]&space;=&space;\sum_{k=0}^{N/2}\mathfrak{Re}\{X[k]\}\cos(2\pi&space;kn/N) + \mathfrak{Im}\{X[k]\}\sin(2\pi&space;kn/N)." />
 
@@ -145,13 +145,15 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [^11]: Here we assume that the radiation from the source is monochromatic (i.e. consisting of a single frequency), however, the equations we derive are valid for all frequencies. Furthermore, from the superposition principle, we can analyze each frequency seperately then add all the results together at the end to find the full solution.
 
 
-[taug]: https://latex.codecogs.com/gif.latex?\tau_g "taug"
-[phi]: https://latex.codecogs.com/gif.latex?\phi "phi"
-[cosphi]: https://latex.codecogs.com/gif.latex?\cos(\phi) "cphi"
-[theta]: https://latex.codecogs.com/gif.latex?\theta "theta"
-[costheta]: https://latex.codecogs.com/gif.latex?\cos(\theta) "ctheta"
+[kinZ]: https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;] "k \in \mathbb{Z} \cap [0, N/2 ]"
+
+[taug]: https://latex.codecogs.com/gif.latex?\tau_g "\tau_g"
+[phi]: https://latex.codecogs.com/gif.latex?\phi "\phi"
+[cosphi]: https://latex.codecogs.com/gif.latex?\cos(\phi) "\cos(\phi)"
+[theta]: https://latex.codecogs.com/gif.latex?\theta "\theta"
+[costheta]: https://latex.codecogs.com/gif.latex?\cos(\theta) "\cos(\theta)"
 [xn]: https://latex.codecogs.com/gif.latex?x[n] "x[n]"
 [Xk]: https://latex.codecogs.com/gif.latex?X[k] "X[k]"
 [yn]: https://latex.codecogs.com/gif.latex?y[n] "y[n]"
-[vecb]: https://latex.codecogs.com/gif.latex?\vec{b} "Vecb"
-[hats]: https://latex.cods.com/gif.latex?\hat{s} "hats"
+[vecb]: https://latex.codecogs.com/gif.latex?\vec{b} "\vec{b}"
+[hats]: https://latex.codecogs.com/gif.latex?\hat{s} "\hat{s}"
