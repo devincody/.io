@@ -11,7 +11,7 @@ Radio interferometry often times comes off as a difficult concept, but it doesn�
 
 ![Image of FT Pair](https://raw.githubusercontent.com/devincody/Blog/master/_images/FTwCap.png)
 
-  Fig. 1 shows two entirely equivalent, equally-valid representations of a galaxy. The image on the left is an image you might find in an Astronomy 101 textbook and the image on the right is simply the Fourier transform of the image on the left[^9]. It is just as true, however, to say that the image on the left is the inverse Fourier transform of the image on the right. 
+  Fig. 1 shows two entirely equivalent, equally-valid representations of a galaxy. The image on the left is an image you might find in an Astronomy 101 textbook and the image on the right is simply the Fourier transform of the image on the left[^2]. It is just as true, however, to say that the image on the left is the inverse Fourier transform of the image on the right. 
 	
   Radio interferometry, is a method of collecting information about the sky in the “Fourier” domain (i.e. information similar to that shown on the right in Fig. 1). Once we have collected this information, we can then use a computer to compute the inverse Fourier transform of the data and to reconstruct a picture of the sky. 
 	
@@ -19,10 +19,10 @@ Radio interferometry often times comes off as a difficult concept, but it doesn�
   
 ### The (Discrete) Fourier Transform
   
-  At its core, the one-dimensional (Discrete[^2]) Fourier transform states that any signal, that is, any sequence of N data points (e.g. measurements of position, a stock’s value over time, or pixel intensities in a one-dimensional image) with regular spacing can be represented by (decomposed into) a sum of N/2+1 sines and N/2+1 cosines. 
+  At its core, the one-dimensional (Discrete[^3]) Fourier transform states that any signal, that is, any sequence of N data points (e.g. measurements of position, a stock’s value over time, or pixel intensities in a one-dimensional image) with regular spacing can be represented by (decomposed into) a sum of N/2+1 sines and N/2+1 cosines. 
 ![Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/DecompSynthwCap.png)
 
-  Fig 2. shows an example of this relationship with a signal[^3] of length 16. On the left side of Fig 2. we show a 16-point signal which is decomposed into (16/2+1 =) 9 sine and 9 cosine waves as shown on the right. Equivalently, we can say that the 18 signals on the right can be synthesized (summed) to form the signal on the left. These two representations are *exactly* equivalent in the information that they contain. As Steven Smith, author of “The Scientist and Engineer’s Guide to Digital Signal Processing”, points out, “There is no difference between the [original signal] and the sum of the signals in [the decomposition], just as there is no difference between 7 and 3+4”.
+  Fig 2. shows an example of this relationship with a signal[^4] of length 16. On the left side of Fig 2. we show a 16-point signal which is decomposed into (16/2+1 =) 9 sine and 9 cosine waves as shown on the right. Equivalently, we can say that the 18 signals on the right can be synthesized (summed) to form the signal on the left. These two representations are *exactly* equivalent in the information that they contain. As Steven Smith, author of “The Scientist and Engineer’s Guide to Digital Signal Processing”, points out, “There is no difference between the [original signal] and the sum of the signals in [the decomposition], just as there is no difference between 7 and 3+4”.
 
 ![Frequency Spectrum](https://raw.githubusercontent.com/devincody/Blog/master/_images/FreqSpecwCap.png)
 
@@ -36,7 +36,7 @@ Let’s see what this looks like mathematically. The equation for correlation be
 
 <img align="center" src="https://latex.codecogs.com/gif.latex?\large&space;x\cdot&space;y&space;=&space;\sum_{n=1}^{N-1}x[n]y[n]." />
 
-All this equation is doing is multiplying each term in the two sequences and adding up the result. The Fourier Transform is simply an extension of this equation. Lets look at the equation for the Fourier transform[^4]
+All this equation is doing is multiplying each term in the two sequences and adding up the result. The Fourier Transform is simply an extension of this equation. Lets look at the equation for the Fourier transform[^5]
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{Re}\{X[k]\}&space;=&space;\frac{2}{N}\sum_{n=1}^{N-1}x[n]\cos(2\pi&space;kn/N)" />
 
@@ -46,7 +46,7 @@ where
 
 ![kinZ]
 
-These equations might look scary, but let’s work through them together. Here ![xn] (note that little x and big X are different even though they represent the same signal) is the signal that we are analyzing, and ![yn] has been replaced by <img src="https://latex.codecogs.com/gif.latex?\cos(2\pi&space;kn/N)" title="\cos(2\pi kn/N)" />. This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k and the third equation (![kinZ]) tells us that it takes integer values between 0 to N/2 inclusive. ![Xk] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, ![Xk] is the representation of ![xn] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given ![Xk], we can use the inverse Fourier transform to synthesize x[n]
+These equations might look scary, but let’s work through them together. Here ![xn] (note that little ![xn] and big ![Xk] are different even though they represent the same signal) is the signal that we are analyzing, and ![yn] has been replaced by <img src="https://latex.codecogs.com/gif.latex?\cos(2\pi&space;kn/N)" title="\cos(2\pi kn/N)" />. This is simply our test sinusoid. The frequency of each test sinusoid is set by the parameter k and the third equation (![kinZ]) tells us that it takes integer values between 0 to N/2 inclusive. ![Xk] is the variable that will hold the amplitudes of our decomposed signal. Evidently, the real part of X will hold the amplitudes of the cosines and the imaginary part of X will hold the amplitudes of the sines. Using exact nomenclature, ![Xk] is the representation of ![xn] in the Fourier domain. Finally, the Fourier transform scales each of these correlations by 2/N to set the appropriate scale when things are added together again. In a similar manner, given ![Xk], we can use the inverse Fourier transform to synthesize ![xn]
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;x[n]&space;=&space;\sum_{k=0}^{N/2}\mathfrak{Re}\{X[k]\}\cos(2\pi&space;kn/N) + \mathfrak{Im}\{X[k]\}\sin(2\pi&space;kn/N)." />
 
@@ -73,7 +73,7 @@ Let’s examine what happens visually to images when they are multiplied by a be
 
 ![Modulated Images of Galaxy](https://raw.githubusercontent.com/devincody/Blog/master/_images/ModulatedBWGalaxwCap.png)
 
-  Last, and most importantly, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain[^10].
+  Last, and most importantly, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain[^6].
 
 ### The Fringe Pattern
 
@@ -81,11 +81,11 @@ Let’s examine what happens visually to images when they are multiplied by a be
 
   Finally, we will now turn to Fig. 7, which is commonly the first image shown during lectures on Interferometry. Fig. 7 is fundamentally a blueprint for the design of an instrument which has *beam pattern* (also known as a radiation pattern) that approximates a test sinusoid.
   
-  The derivation proceeds as follows: suppose we have two antennas, separated by some vector b looking at some object in the sky in the direction given by the unit vector, ![hats]. Assuming that the object (source) in the direction of ![hats] is far enough away that the radiation from it can be assumed to be a plane wave[^5], then the time delay between when the radio telescope number two receives the signal and when radio telescope number one receives the signal is given by ![taug] where ![taug] is calculated by the equation 
+  The derivation proceeds as follows: suppose we have two antennas, separated by some vector b looking at some object in the sky in the direction given by the unit vector, ![hats]. Assuming that the object (source) in the direction of ![hats] is far enough away that the radiation from it can be assumed to be a plane wave[^7], then the time delay between when the radio telescope number two receives the signal and when radio telescope number one receives the signal is given by ![taug] where ![taug] is calculated by the equation 
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau_g&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta)"/>
 
-Thus, if antenna 2 produces some waveform[^11] due to the radiation from ![hats], given by
+Thus, if antenna 2 produces some waveform[^8] due to the radiation from ![hats], given by
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;V_2(t)&space;=&space;V\cos(\omega&space;t)"/>
 
@@ -111,7 +111,7 @@ Re-writing this in terms of theta, we find that:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R(\theta)&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\cos(\theta)/c)"/>
 
-  This, at long-last, is our test sinusoid (in proper radio astronomy nomenclature, this pattern is closely related to the interferometer fringe pattern[^7]). The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Fig. 8 plots the above equation for R as we sweep theta from one side of the sky to the other (left). 
+  This, at long-last, is our test sinusoid (in proper radio astronomy nomenclature, this pattern is closely related to the interferometer fringe pattern[^9]). The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Fig. 8 plots the above equation for R as we sweep theta from one side of the sky to the other (left). 
  
 ![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/FringePatternwCap.png)
  
@@ -121,9 +121,9 @@ Re-writing this in terms of theta, we find that:
   
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R(u,v)&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|u/c)"/>
   
-As if by magic, our test sinusoid is no longer distorted. Note that we restrict theta and phi to be 0 to +180 degrees (i.e. horizon to horizon) such that the mappings from ![theta] to ![costheta] and ![phi] to ![cosphi] is one-to-one. That is to say there is exactly one value of ![costheta] for every value of ![theta] and the same goes for ![phi]. Practially, what this means is that we are transforming the mapping of the sky to some coordinate system in which our test sinusoids are ideal, then once we've collected in the Fourier domain and transfered it back to the image domain, we can re-map this data to an actual map of the sky using the same u,v relations[^8].
+As if by magic, our test sinusoid is no longer distorted. Note that we restrict theta and phi to be 0 to +180 degrees (i.e. horizon to horizon) such that the mappings from ![theta] to ![costheta] and ![phi] to ![cosphi] is one-to-one. That is to say there is exactly one value of ![costheta] for every value of ![theta] and the same goes for ![phi]. Practially, what this means is that we are transforming the mapping of the sky to some coordinate system in which our test sinusoids are ideal, then once we've collected in the Fourier domain and transfered it back to the image domain, we can re-map this data to an actual map of the sky using the same u, v relations[^10].
   
-  Lastly, you may wonder how we can generate all the other test sinusoides. Notice that the spatial frequency (i.e. how rapidly the signal peaks and dips as a function of ![hats]) of our test sinusoid is dependent on ![vecb][vecb], the length and direction[^6] of the baseline between the antennas. Therefore, although any given pair of antennas is only able to produce one baseline (assuming the antennas don’t move), we can add additional antennas to produce additional baselines and more test sinusoids. With a sufficient number of antennas, we will be able to complete our map of the sky in the Fourier domain, and then, using a computer, transform that data through the inverse Fourier transform to obtain the intensity sky mappings for which interferometry is so renowned.
+  Lastly, you may wonder how we can generate all the other test sinusoides. Notice that the spatial frequency (i.e. how rapidly the signal peaks and dips as a function of ![hats]) of our test sinusoid is dependent on ![vecb][vecb], the length and direction[^11] of the baseline between the antennas. Therefore, although any given pair of antennas is only able to produce one baseline (assuming the antennas don’t move), we can add additional antennas to produce additional baselines and more test sinusoids. With a sufficient number of antennas, we will be able to complete our map of the sky in the Fourier domain, and then, using a computer, transform that data through the inverse Fourier transform to obtain the intensity sky mappings for which interferometry is so renowned.
   
 ### Outro
   This completes my (hopefully) intuitive approach to interferometry. I hope you enjoy reading this as much as I enjoyed writing it. To maximize simplicity, I inevitably had to cut out many interesting and exciting (some might even say critical) aspects of interferometry. However, those details are recorded in greater depth and eloquence than I could ever hope to achieve in such texts as “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr. and “Essential Radio Astronomy” by James Justin Condon and Scott M. Ransom. I would also highly recommend “The Scientist and Engineer’s Guide to Digital Signal Processing” by Steven Smith, a book that was highly influential on my approach to the Fourier transform.
@@ -135,16 +135,30 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 ### Notes
 
 [^1]: This is a potential trap for people who have used the the Fourier transform previously. Often the Fourier transform is introduced as a method of studying *temporal* variations which is a vaild way of understanding the Fourier transform. However, in astronomy, we are more interested in studying the *spatial* variations of a signal. As alluded to earier, this might be the brightness of an array of pixels or the compression of a spring as a function of position.
-[^2]: Strictly speaking, these are the properties of the discrete Fourier Transform (DFT) however, the Fourier Transform, which exists in the domain of continuous functions can be though of as a generalization of these ideas.
-[^3]: Because my background is in Electrical Engineering, I will often talk about "signals", "sequences", or "series", which can be defined as any sequence of datapoints in the "time" domain. Conversely, I will say "frequency spectrum" when talking about a set of datapoints which represent information in the "frequency" domain.
-[^4]: Most equations for the discrite fourier transform include the factor of 2/N as part of the inverse fourier transform rather than the forward transform.
-[^5]: Plane waves are waves that have traveled far enough from their origin that they have negligible curvature. By way of example, consider a rock dropped into a still lake. If the rock is dropped close to the shore, then the ripples will hit two points on the shore line at different times (assuming the points are not equidistant from the rock). Conversely if the rock is dropped far from the shore, then the ripples will hit the two points at approximately the same time. At such a distance, the ripples (waves) are planar and are considered to be in the *far-field*. For electromagnetic waves, the same concept applies except in this case, our metaphorical lake is quite literally the size of the universe.
-[^6]: The direction of the baseline additionally changes the "direction" of the test sinusoids. To see this, remember that \theta is defined in the plane defined by the baseline between the two antennas and a vector pointing towards the zenith. Therefore, we can change the orientation of this plane relative to some global coordinate system by chaning the baseline direction. This will ultimately give us all 360 degrees of test sinusoids that we need.
-[^7]: In radio astronomy terms, fringe patterns are temporally varying power signals caused by radio sources transiting the previously discussed beam pattern.
-[^8]:This concept is known as "direction cosines"
-[^9]: For those of you following along at home, I've plotted the Fourier transform image in dB (logarithmic) to increase dynamic range.
-[^10]: As it turns out, we actually do not need to measure all of the sinusoids, and in fact, it is physically impossible to measure all of them. Forming images without full information of the sky in the fourier (visibility) domain is covered in many books and papers. For example, see “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr.
-[^11]: Here we assume that the radiation from the source is monochromatic (i.e. consisting of a single frequency), however, the equations we derive are valid for all frequencies. Furthermore, from the superposition principle, we can analyze each frequency seperately then add all the results together at the end to find the full solution.
+
+[^2]: For those of you following along at home, I've plotted the Fourier transform image in dB (logarithmic) to increase dynamic range.
+
+[^3]: Strictly speaking, these are the properties of the discrete Fourier Transform (DFT) however, the Fourier Transform, which exists in the domain of continuous functions can be though of as a generalization of these ideas.
+
+[^4]: Because my background is in Electrical Engineering, I will often talk about "signals", "sequences", or "series", which can be defined as any sequence of datapoints in the "time" domain. Conversely, I will say "frequency spectrum" when talking about a set of datapoints which represent information in the "frequency" domain.
+[^5]: Most equations for the discrite fourier transform include the factor of 2/N as part of the inverse fourier transform rather than the forward transform.
+
+
+
+
+
+
+[^6]: As it turns out, we actually do not need to measure all of the sinusoids, and in fact, it is physically impossible to measure all of them. Forming images without full information of the sky in the fourier (visibility) domain is covered in many books and papers. For example, see “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr.
+
+[^7]: Plane waves are waves that have traveled far enough from their origin that they have negligible curvature. By way of example, consider a rock dropped into a still lake. If the rock is dropped close to the shore, then the ripples will hit two points on the shore line at different times (assuming the points are not equidistant from the rock). Conversely if the rock is dropped far from the shore, then the ripples will hit the two points at approximately the same time. At such a distance, the ripples (waves) are planar and are considered to be in the *far-field*. For electromagnetic waves, the same concept applies except in this case, our metaphorical lake is quite literally the size of the universe.
+
+[^8]: Here we assume that the radiation from the source is monochromatic (i.e. consisting of a single frequency), however, the equations we derive are valid for all frequencies. Furthermore, from the superposition principle, we can analyze each frequency seperately then add all the results together at the end to find the full solution.
+
+[^9]: In radio astronomy terms, fringe patterns are temporally varying power signals caused by radio sources transiting the previously discussed beam pattern.
+
+[^10]:This concept is known as "direction cosines"
+
+[^11]: The direction of the baseline additionally changes the "direction" of the test sinusoids. To see this, remember that \theta is defined in the plane defined by the baseline between the two antennas and a vector pointing towards the zenith. Therefore, we can change the orientation of this plane relative to some global coordinate system by chaning the baseline direction. This will ultimately give us all 360 degrees of test sinusoids that we need.
 
 
 [kinZ]: https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;] "k \in \mathbb{Z} \cap [0, N/2 ]"
