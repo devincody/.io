@@ -60,7 +60,7 @@ Let's now take a deeper look at the mechanics of correlation as used in the Four
    
 ### Correlation on the Sky: Putting it All Together
 
-  Now that we've gotten a better understanding of the Fourier transform, We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids (one sine and one cosine at each of the N/2+1 frequencies since <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;]" title="k \in \mathbb{Z} \cap [0, N/2 ]" /> and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
+  Now that we've gotten a better understanding of the Fourier transform, We now have the tool we need to calculate the amplitudes of the sinusoids which exactly decompose our original signal. To recap, we simply correlate our original signal with a toolbox of test sinusoids (one sine and one cosine at each of the N/2+1 frequencies since ![kinZ] and then we can represent our signal as a sum of those same test sinusoids with a new amplitude. 
   
   For the two-dimensional Fourier transform, we do the exact same thing, except this time, our test sinusoids look like the one shown in Fig. 5. Furthermore, we have to sum over two-dimensions (one for the x direction and one for the y direction). For the two-dimensional Fourier transform, the “direction” of the sinusoid (that is, the direction of maximal variation) varies by 180 degrees, in Fig. 5 we show two possible frequencies and directions.
 
@@ -101,7 +101,9 @@ applying a handy trigonometric product identity
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;V_{12}(t)&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)&space;+&space;\cos(\omega&space;(2t-\tau_g))"/>
 
-and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of ![taug]:
+and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of ![taug]:
+
+
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R(\tau_g)&space;=&space;<V_{12}>&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)"/>
 
