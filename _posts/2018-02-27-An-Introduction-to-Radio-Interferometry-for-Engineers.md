@@ -101,7 +101,7 @@ applying a handy trigonometric product identity
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;V_{12}(t)&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)&space;+&space;\cos(\omega&space;(2t-\tau_g))"/>
 
-and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of tau_g:
+and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\fn_phv&space;\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of ![taug]:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R(\tau_g)&space;=&space;<V_{12}>&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)"/>
 
