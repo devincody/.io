@@ -81,7 +81,7 @@ Let’s examine what happens visually to images when they are multiplied by a be
 
   Finally, we will now turn to Fig. 7, which is commonly the first image shown during lectures on Interferometry. Fig. 7 is fundamentally a blueprint for the design of an instrument which has *beam pattern* (also known as a radiation pattern) that approximates a test sinusoid.
   
-  The derivation proceeds as follows: suppose we have two antennas, separated by some vector b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object (source) in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave[^5], then the time delay between when the radio telescope number two receives the signal and when radio telescope number one receives the signal is given by ![taug] where ![taug] is calculated by the equation 
+  The derivation proceeds as follows: suppose we have two antennas, separated by some vector b looking at some object in the sky in the direction given by the unit vector, s. Assuming that the object (source) in the direction of s is far enough away that the radiation from it can be assumed to be a plane wave[^5], then the time delay between when the radio telescope number two receives the signal and when radio telescope number one receives the signal is given by <img src="https://latex.codecogs.com/gif.latex?\tau_g" title="\tau_g" /> where ![taug] is calculated by the equation 
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau_g&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta)"/>
 
@@ -145,4 +145,4 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [^11]: Here we assume that the radiation from the source is monochromatic (i.e. consisting of a single frequency), however, the equations we derive are valid for all frequencies. Furthermore, from the superposition principle, we can analyze each frequency seperately then add all the results together at the end to find the full solution.
 
 
-[taug]: "https://latex.codecogs.com/gif.latex?\tau_g"
+[taug]: https://latex.codecogs.com/gif.latex?\tau_g "taug"
