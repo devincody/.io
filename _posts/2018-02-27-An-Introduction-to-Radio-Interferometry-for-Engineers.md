@@ -6,7 +6,7 @@ At Caltech, I’m working with Gregg Hallinan and Sandy Weinreb on a project cal
 
 ### Intro
 
-![Image of Interferometers](https://raw.githubusercontent.com/devincody/Blog/master/_images/InterfeometerswCap.png)
+![Image of Interferometers](https://raw.githubusercontent.com/devincody/Blog/master/_images/InterferometerswCap.png)
 
 By way of introduction to the topic of interferometry, I thought I'd show images of two radio interferometers (see fig. 0). Radio Interferometry is a method by which many distinct dishes (such as ALMA) or many distinct dipoles (such as the LWA) are used together to produce images of the radio sky. Although the earliest radio telescopes used single dished, the majority of radio telescopes being built today are interferometers. This is because interferometers are generally able to produce higher-resolution and higher-sensitivity images than their single dish counter-parts.
 
