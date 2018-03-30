@@ -20,7 +20,7 @@ By way of introduction to the topic of interferometry, I thought I'd show images
 
   Fig. 1 shows two entirely equivalent, equally valid representations of a galaxy. The image on the left is an image you might find in an Astronomy 101 textbook and the image on the right is simply the Fourier transform of the image on the left[^2]. It is just as true, however, to say that the image on the left is the inverse Fourier transform of the image on the right. 
 	
-  Radio interferometry is a method of collecting information about the sky in the “Fourier” domain (i.e. information similar to that shown on the right in Fig. 1). Once we have collected this information, we can then use a computer to compute the inverse Fourier transform of the data and to reconstruct a picture of the sky. 
+  Radio interferometry is a method of collecting information about the sky in the “Fourier” domain (i.e. information similar to that shown on the right in Fig. 1). Once we have collected this information, we can then use a computer to compute the inverse Fourier transform of the data and thereby reconstruct a picture of the sky. 
 	
   But how does an interferometer measure the Fourier transform of the sky? To answer this question, we will start by examining how the one-dimensional Fourier transform works. 
   
@@ -77,27 +77,25 @@ Let's now take a deeper look at the mechanics of correlation as used in the Four
 
  Now, let’s return to radio astronomy and attempt to answer the question that spurred this adventure into the Fourier transform in the first place: how does an interferometer measure the Fourier transform of the sky? The answer, of course, is with test sinusoids! Supposing we had an “instrument” with an antenna pattern (also known as a beam pattern or radiation pattern) that looked like the sinusoid shown in Fig. 5, then by observing the sky with this instrument, the signal coming from the antenna would be the Fourier amplitude needed for the Fourier decomposition. Remember that an antenna pattern tells us the directional dependence of the antenna’s sensitivity to radiation.
 
-Let’s examine what happens visually to images when they are "measured" by a beam pattern. Ultimately, we will see that this measurement looks a lot like a two-dimensional correlation. Suppose we have a "radiation intensity distribution" on the sky which looks like the galaxy in Fig. 1. To calculate the amount of power received by the antenna, we multiply the intensity of the distribution in every direction by the ability of the antenna to receive power from that direction (i.e. the beam pattern) and sum over all these directions. Mathematically,
+Let’s examine what happens visually to images when they are "measured" by a beam pattern. Ultimately, we will see that this measurement looks a lot like a two-dimensional correlation. Suppose we have a "radiation intensity distribution" on the sky which looks like the galaxy in Fig. 1 where the white parts of the image correspond to high intensity radiation and black corresponds to no radiation from that direction. To calculate the amount of power received by the antenna, we multiply the intensity of the distribution in every direction by the ability of the antenna to receive power from that direction (i.e. the beam pattern) and sum over all these directions. Mathematically,
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\sum_{i=1}^{N-1}\sum_{j=1}^{N-1}x[i,j]y[i,j]" title="\large \sum_{i=1}^{N-1}\sum_{j=1}^{N-1}x[i,j]y[i,j]" />
 
-Where ![xij] is our intensity distribution and ![yij] is our beam pattern. This is precisely the formulation for correlation. Note that in these examples, we are correlating on a cartesian grid, however, in general, the beam patterns and intensity distributions are defined on a spherical grid.  (see [here](http://www.antenna-theory.com/basics/radpattern.php "antenna-theory.com") or [here](https://www.cv.nrao.edu/~sransom/web/Ch3.html "NRAO Essential Radio Astronomy ch 3") for review on beam patterns).
+Where ![xij] is our intensity distribution and ![yij] is our beam pattern. This is precisely the formulation for a two-dimensional correlation. Note that in these examples, we are correlating on a cartesian grid, however, in general, the beam patterns and intensity distributions are defined on spherical grids.  (see [here](http://www.antenna-theory.com/basics/radpattern.php "antenna-theory.com") or [here](https://www.cv.nrao.edu/~sransom/web/Ch3.html "NRAO Essential Radio Astronomy ch 3") for review on beam patterns).
 
-Fig. 6 shows the intermediary result after multiplication but before summation for two beam patterns. When measured by a gaussian, the instrument receives more power from the center of the image than the the edges. When multiplied by the test sinusoid, a distinctive zebra pattern arises because the test sinusoid alternates between both positive and negative values.
-
-Therefore, if the two-dimensional test sinusoids were a beam pattern, the white portions of the image would correspond to portions of the sky where the antenna is highly sensitive and the black portions denote areas where the antenna is *negatively* sensitive
+Fig. 6 shows the intermediary result after multiplication but before summation for two beam patterns. In effect, the images in Fig. 6 show the intensity of the recieved radiated power from any directions. For example, when measured by an antenna with a gaussian beam pattern, the instument receives more power from the center of the image than the the edges. When measured by (correlated with) a test sinusoid, a distinctive zebra pattern arises because the test sinusoid alternates between both positive and negative values.
 
 ![Modulated Images of Galaxy](https://raw.githubusercontent.com/devincody/Blog/master/_images/ModulatedBWGalaxwCap.png)
 
-  Last, and most importantly, if we had many instruments each with a different beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain[^6].
+  Last, and most importantly, if we had many instruments each with a different test sinusoid beam pattern, then we’d be able to calculate the Fourier amplitudes for all of these sinusoids and exactly determine how the sky is represented in the Fourier domain[^6].
 
 ### The Fringe Pattern
 
 ![Geometric origin of fringe pattern](https://raw.githubusercontent.com/devincody/Blog/master/_images/AntGeometrywCap.png)
 
-  Finally, we will now turn to Fig. 7, which is commonly the first image shown during lectures on Interferometry. Fig. 7 is fundamentally a blueprint for the design of an instrument which has *beam pattern* (also known as a radiation pattern) that approximates a test sinusoid.
+  Finally, we will now turn to Fig. 7, which is commonly the first image shown during lectures on Interferometry. Fig. 7 is fundamentally a blueprint for the design of an instrument which has beam pattern that approximates a test sinusoid.
   
-  The derivation proceeds as follows: suppose we have two antennas, separated by some vector b looking at some object in the sky in the direction given by the unit vector, ![hats]. Assuming that the object (source) in the direction of ![hats] is far enough away that the radiation from it can be assumed to be a plane wave[^7], then the time delay between when the radio telescope number two receives the signal and when radio telescope number one receives the signal is given by ![taug] where ![taug] is calculated by the equation 
+  The derivation proceeds as follows: suppose we have two antennas, separated by some vector b looking at some object in the sky in the direction given by the unit vector, ![hats]. Assuming that the object (source) in the direction of ![hats] is far enough away that the radiation from it can be assumed to be a plane wave[^7], then the time delay between when radio telescope number 2 receives the signal and when radio telescope number one receives the signal is given by ![taug]. ![taug] is calculated by the equation 
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;c\tau_g&space;=&space;\vec{b}&space;\cdot&space;\vec{s}&space;=&space;|\vec{b}|\cos(\theta)"/>
 
@@ -109,17 +107,15 @@ Then antenna 1 produces some time-delayed version of the same waveform
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;V_1(t)&space;=&space;V\cos(\omega&space;(t-\tau_g))"/>
 
-As per the diagram, we next multiply these signals together
+As per Fig. 7, we next multiply these signals together
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;V_{12}(t)&space;=&space;V_1(t)V_2(t)&space;=&space;V^2\cos(\omega&space;t)\cos(\omega&space;(t-\tau_g))"/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;V_{12}(t)&space;=&space;V_1(t)V_2(t)&space;=&space;V^2\cos(\omega&space;t)\cos(\omega&space;(t-\tau_g))."/>
 
-applying a handy trigonometric product identity
+Applying a handy trigonometric product identity,
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;V_{12}(t)&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)&space;+&space;\cos(\omega&space;(2t-\tau_g))"/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;V_{12}(t)&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)&space;+&space;\cos(\omega&space;(2t-\tau_g))."/>
 
-and finally average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left the following signal, R, which is a function of ![taug]:
-
-
+Finally, we average this signal over a long enough period of time such that the temporally varying portion of the signal, <img src="https://latex.codecogs.com/gif.latex?\cos(\omega&space;(2t-\tau_g))"/>, averages to 0 and we are left with the following signal, R, which is a function of ![taug]:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R(\tau_g)&space;=&space;<V_{12}>&space;=&space;\frac{V^2}{2}\cos(\omega&space;\tau_g)"/>
 
@@ -127,19 +123,19 @@ Re-writing this in terms of theta, we find that:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;R(\theta)&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|\cos(\theta)/c)"/>
 
-  This, at long-last, is our test sinusoid (in proper radio astronomy nomenclature, this pattern is closely related to the interferometer fringe pattern[^9]). The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. Fig. 8 plots the above equation for R as we sweep theta from one side of the sky to the other (left). 
+  This, at long-last, is our test sinusoid (in proper radio astronomy nomenclature, this pattern is closely related to the interferometer fringe pattern[^9]). Fig. 8 plots the above equation for R as we sweep theta from one side of the sky to the other (left). The instrument is most sensitive in the directions of the sinusoidal maxima and has “negative” sensitivity at the locations of the dips. 
  
 ![Image of Decomposition Synthesis Relationship](https://raw.githubusercontent.com/devincody/Blog/master/_images/FringePatternwCap.png)
  
-  But, wait, you might say, Fig. 8 doesn’t look like the two-dimensional pattern shown in Fig. 5! And you’d be right, they do not look the same; for starters, Fig. 8 is a one-dimensional pattern, and second, Fig. 8 is not a pure cosinusoidal pattern. The answer to the first observation is that the equation for the test sinusoid, R, actually *is* a 2-dimensional pattern, we simply choose to only plot R in one-dimension (i.e. in ![theta]). If we let ![phi] be the 2nd angle of a coordinate system where ![phi] is orthogonal to ![theta], then R does not depend on phi (notice how ![taug] only depends on ![theta]). Finally, if we plot R as a function of ![theta] and ![phi], then we will indeed find that R looks like a two-dimensional test sinusoid. 
+  But, wait, you might say, Fig. 8 doesn’t look like the two-dimensional pattern shown in Fig. 5! And you’d be right, they do not look the same; for starters, Fig. 8 is a one-dimensional pattern, and second, Fig. 8 is not a pure cosinusoidal pattern. The answer to the first observation is that the equation for the test sinusoid, R, actually *is* a 2-dimensional pattern, we simply choose to only plot R in one-dimension (i.e. in ![theta]). If we let ![phi] be the 2nd angle of a coordinate system where ![phi] is orthogonal to ![theta], then we can plot R as a function of ![theta] and ![phi], then we will indeed find that R looks like a two-dimensional test sinusoid. 
   
-  We will address the second observation using a bit of a sly trick. First, notice that the only difference between our equation for R and a pure cosine is that R is a function of ![costheta] and not ![theta]. If we were somehow able to removed the cosine, then we would have an ideal sinusoidal testing pattern. As it turns out, we can accomplish this with a transformation of variables: instead of considering R as a function of ![theta], we define new variables, u and v, given by the relations u = ![costheta] and v = ![cosphi]. Now our two spatial dimensions are not directly functions of ![theta] and ![phi], but in their cosines, u and v
+  We will address the second observation, that R is distorted, using a transformation of variables. First, notice that the only difference between our equation for R and a pure cosine is that R is a function of ![costheta] and not ![theta]. If we were somehow able to removed the cosine, then we would have an ideal sinusoidal testing pattern. This can be accomplish with the following transformation of variables: instead of considering R as a function of ![theta], we define new variables, u and v, given by the relations u = ![costheta] and v = ![cosphi]. Now our two spatial dimensions are not directly functions of ![theta] and ![phi], but in their cosines, u and v
   
-<img src="https://latex.codecogs.com/gif.latex?\large&space;R(u,v)&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|u/c)"/>
+<img src="https://latex.codecogs.com/gif.latex?\large&space;R(u,v)&space;=&space;\frac{V^2}{2}\cos(\omega&space;|\vec{b}|u/c)."/>
   
 As if by magic, our test sinusoid is no longer distorted. Note that we restrict theta and phi to be 0 to +180 degrees (i.e. horizon to horizon) such that the mappings from ![theta] to ![costheta] and ![phi] to ![cosphi] is one-to-one. That is to say there is exactly one value of ![costheta] for every value of ![theta] and the same goes for ![phi]. Practially, what this means is that we are transforming the mapping of the sky to some coordinate system in which our test sinusoids are ideal, then once we've collected in the Fourier domain and transfered it back to the image domain, we can re-map this data to an actual map of the sky using the same u, v relations[^10].
   
-  Lastly, you may wonder how we can generate all the other test sinusoides. Notice that the spatial frequency (i.e. how rapidly the signal peaks and dips as a function of ![hats]) of our test sinusoid is dependent on ![vecb][vecb], the length and direction[^11] of the baseline between the antennas. Therefore, although any given pair of antennas is only able to produce one baseline (assuming the antennas don’t move), we can add additional antennas to produce additional baselines and more test sinusoids. With a sufficient number of antennas, we will be able to complete our map of the sky in the Fourier domain, and then, using a computer, transform that data through the inverse Fourier transform to obtain the intensity sky mappings for which interferometry is so renowned.
+  Lastly, you may wonder how we can generate all the other test sinusoides. Notice that the spatial frequency (i.e. how rapidly the signal, R, peaks and dips as a function of ![hats]) of our test sinusoid is dependent on ![vecb][vecb], the length and direction[^11] of the baseline between the antennas. Therefore, although any given pair of antennas is only able to produce one baseline (assuming the antennas don’t move), we can add additional antennas to produce additional baselines and more test sinusoids [^12]. With a sufficient number of antennas, we will be able to complete our map of the sky in the Fourier domain, and then, using a computer, transform that data through the inverse Fourier transform to obtain the intensity sky mappings for which interferometry is so renowned.
   
 ### Outro
   This completes my (hopefully) intuitive approach to interferometry. I hope you enjoy reading this as much as I enjoyed writing it. To maximize simplicity, I inevitably had to cut out many interesting and exciting (some might even say critical) aspects of interferometry. However, those details are recorded in greater depth and eloquence than I could ever hope to achieve in such texts as “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr. and “Essential Radio Astronomy” by James Justin Condon and Scott M. Ransom. I would also highly recommend “The Scientist and Engineer’s Guide to Digital Signal Processing” by Steven Smith, a book that was highly influential on my approach to the Fourier transform.
@@ -160,15 +156,11 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [^5]: Most equations for the discrite fourier transform include the factor of 2/N as part of the inverse fourier transform rather than the forward transform.
 
 
-
-
-
-
 [^6]: As it turns out, we actually do not need to measure all of the sinusoids, and in fact, it is physically impossible to measure all of them. Forming images without full information of the sky in the fourier (visibility) domain is covered in many books and papers. For example, see “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson, Jr.
 
 [^7]: Plane waves are waves that have traveled far enough from their origin that they have negligible curvature. By way of example, consider a rock dropped into a still lake. If the rock is dropped close to the shore, then the ripples will hit two points on the shore line at different times (assuming the points are not equidistant from the rock). Conversely if the rock is dropped far from the shore, then the ripples will hit the two points at approximately the same time. At such a distance, the ripples (waves) are planar and are considered to be in the *far-field*. For electromagnetic waves, the same concept applies except in this case, our metaphorical lake is quite literally the size of the universe.
 
-[^8]: Here we assume that the radiation from the source is monochromatic (i.e. consisting of a single frequency), however, the equations we derive are valid for all frequencies. Furthermore, from the superposition principle, we can analyze each frequency seperately then add all the results together at the end to find the full solution.
+[^8]: Here we assume that the radiation from the source is monochromatic (i.e. consisting of a single frequency, ![omega]). It is true, however, that the equations we derive are valid for all frequencies. Furthermore, from the superposition principle, we can analyze each frequency seperately then add all the results together at the end to find the full solution.
 
 [^9]: In radio astronomy terms, fringe patterns are temporally varying power signals caused by radio sources transiting the previously discussed beam pattern.
 
@@ -176,6 +168,7 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 
 [^11]: The direction of the baseline additionally changes the "direction" of the test sinusoids. To see this, remember that \theta is defined in the plane defined by the baseline between the two antennas and a vector pointing towards the zenith. Therefore, we can change the orientation of this plane relative to some global coordinate system by chaning the baseline direction. This will ultimately give us all 360 degrees of test sinusoids that we need.
 
+[^12]: The number of baselines scales as N(N-1) where N is the number of antennas. With N antennas, there are N(N-1)/2 pairs of antennas. For each pair of antennas there are two baselines, since the seperation between the antennas can be described equally with 2 anti-parallel vectors.
 
 [kinZ]: https://latex.codecogs.com/gif.latex?\fn_phv&space;k&space;\in&space;\mathbb{Z}&space;\cap&space;[0,&space;N/2&space;] "k \in \mathbb{Z} \cap [0, N/2 ]"
 
@@ -183,6 +176,7 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [phi]: https://latex.codecogs.com/gif.latex?\phi "\phi"
 [cosphi]: https://latex.codecogs.com/gif.latex?\cos(\phi) "\cos(\phi)"
 [theta]: https://latex.codecogs.com/gif.latex?\theta "\theta"
+[omega]: https://latex.codecogs.com/gif.latex?\omega "\omega"
 [costheta]: https://latex.codecogs.com/gif.latex?\cos(\theta) "\cos(\theta)"
 [xn]: https://latex.codecogs.com/gif.latex?x[n] "x[n]"
 [Xk]: https://latex.codecogs.com/gif.latex?X[k] "X[k]"
