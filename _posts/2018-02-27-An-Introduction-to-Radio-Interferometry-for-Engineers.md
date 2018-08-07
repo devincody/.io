@@ -191,3 +191,9 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [yns]: https://latex.codecogs.com/gif.latex?y_k[1],&space;y_k[2],&space;\cdots&space;y_k[n] "y_k[1], y_k[2], \cdots y_k[n]"
 [xij]: https://latex.codecogs.com/gif.latex?x[i,j] "x[i,j]"
 [yij]: https://latex.codecogs.com/gif.latex?y[i,j] "y[i,j]"
+
+
+
+{% include disqus.html %}
+
+
