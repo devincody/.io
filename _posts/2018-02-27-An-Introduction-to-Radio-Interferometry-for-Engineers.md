@@ -192,7 +192,7 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [xij]: https://latex.codecogs.com/gif.latex?x[i,j] "x[i,j]"
 [yij]: https://latex.codecogs.com/gif.latex?y[i,j] "y[i,j]"
 
-
+Comments
 
 {% include disqus.html %}
 
