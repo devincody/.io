@@ -140,11 +140,17 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 ### Outro
   This completes my (hopefully) intuitive approach to interferometry. I hope you enjoy reading this as much as I enjoyed writing it. To maximize simplicity, I inevitably had to cut out many interesting and exciting (some might even say critical) aspects of interferometry. However, those details are recorded in greater depth and eloquence than I could ever hope to achieve in such texts as “Interferometry and Synthesis in Radio Astronomy” by A. Richard Thompson, James M. Moran, and George W. Swenson Jr. and “Essential Radio Astronomy” by James Justin Condon and Scott M. Ransom. I would also highly recommend “The Scientist and Engineer’s Guide to Digital Signal Processing” by Steven Smith, a book that was highly influential on my approach to the Fourier transform.
 
-  Please feel free to connect with me about this post or anything else that I'm working on if you have comments! You can reach me at: devin.cody@gmail.com
+  Please feel free to leave a comment or connect with me about this post or anything else that I'm working on! You can reach me at: devin.cody@gmail.com
 
 
 
 ### Notes
+See below for footnotes.
+
+### Comments
+
+{% include disqus.html %}
+
 
 [^1]: This is a potential trap for people who have used the the Fourier transform previously. Often the Fourier transform is introduced as a method of studying *temporal* variations which is a vaild way of understanding the Fourier transform. However, in astronomy, we are more interested in studying the *spatial* variations of a signal. As alluded to earier, this might be the brightness of an array of pixels or the compression of a spring as a function of position.
 
@@ -192,8 +198,6 @@ As if by magic, our test sinusoid is no longer distorted. Note that we restrict 
 [xij]: https://latex.codecogs.com/gif.latex?x[i,j] "x[i,j]"
 [yij]: https://latex.codecogs.com/gif.latex?y[i,j] "y[i,j]"
 
-Comments
 
-{% include disqus.html %}
 
 
