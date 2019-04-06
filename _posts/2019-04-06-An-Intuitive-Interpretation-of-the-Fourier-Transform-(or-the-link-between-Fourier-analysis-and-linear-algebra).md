@@ -8,7 +8,7 @@ Now, the Fourier transform is one of tools that I use most often. It took me a l
 
 My objective with this blog post is not to belabor the mechanics of the Fourier transform or attempt to explain every intricate property of the Fourier transform. Rather, my objective is to show you a way of understanding the Fourier transform from a linear algebraic perspective. Once one gains an appreciation for this connection, many of the subtleties of the Fourier transform become almost obvious when observed through this lens (as it turns out, this blog might have the unintended consequence of elucidating certain subtleties of linear algebra as well).
 
-A word of warning before we start: If you’ve never seen the Fourier transform before, this may not be the best place to start your journey. Fear not, however, you can find a good explanation of the (discrete) Fourier transform in my last blog post although I will probably repeat some of the points that I made there. I also recommend the following learning resources: Steve Smith’s (e)Book http://www.dspguide.com/ and Brian Douglas’ [youtube series](https://www.youtube.com/watch?v=1JnayXHhjlg). I also quite like the explanation given [here](https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/)
+A word of warning before we start: If you’ve never seen the Fourier transform before, this may not be the best place to start your journey. Fear not, however, you can find a good explanation of the (discrete) Fourier transform in my last blog post although I will probably repeat some of the points that I made there. I also recommend the following learning resources: Steve Smith’s [Book] (http://www.dspguide.com/) and Brian Douglas’ [youtube series](https://www.youtube.com/watch?v=1JnayXHhjlg). I also quite like the explanation given [here](https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/)
 
 
 
@@ -86,9 +86,11 @@ When it comes to discussing bases, it turns out that not all basis vectors are c
 One of the reasons that orthonormal bases are nice to work with is that taking the inverse of an orthonormal matrix is easy:
 
 For real numbers:
+
 <img src="https://latex.codecogs.com/gif.latex?A^{-1}&space;=&space;A^T" title="A^{-1} = A^T" />
 
 For complex numbers:
+
 <img src="https://latex.codecogs.com/gif.latex?A^{-1}&space;=&space;A^H" title="A^{-1} = A^H" />
 
 This is important because if we have an orthonormal basis (Hint, the Fourier basis) it makes finding the “change of basis matrix” much easier to calculate!
