@@ -176,12 +176,12 @@ As a more advanced example, I also like the intutition that this approach gives 
 Furthermore, the results that we’ve derived here are applicable to the various other versions of the Fourier transform (e.g. continuous time, 2D, 3D, etc.). Unfortunately, those derivations are up to you. While the reduction of the Fourier transform to a matrix multiplication is only valid for discrete Fourier transform, many of the other statements still hold. Most importantly, we can think of any of the other Fourier transforms as projections of time-domain signals onto the Fourier basis with the appropriate frequencies.
 
 
-[^1] As it turns out, this blog might have the unintended consequence of elucidating certain subtleties of linear algebra as well. It certainly did for me!
-[^2] Linear operations are ones that can be expressed as a matrix multiplication with the vector of inputs.
-[^3] This comes directly from the fact that A^T A = I. This in turn is a statement that the dot product of any two columns (or rows) in the matrix are 0 if they are different and 1 if they are the same column.
-[^4] For those of you familiar with big-O notation, calculating the matrix inverse takes O(N^3) time. Conversely calculating the transpose of a matrix can be implemented by changing the indexing of the datastructure.
-[^5] Remember that for complex-valued vectors, the inner product requires the conjugation of one of the vectors. 
-[^6] See for instance, "Mathematical Methods in the Physical Sciences", Boaz.
+[^1]: As it turns out, this blog might have the unintended consequence of elucidating certain subtleties of linear algebra as well. It certainly did for me!
+[^2]: Linear operations are ones that can be expressed as a matrix multiplication with the vector of inputs.
+[^3]: This comes directly from the fact that A^T A = I. This in turn is a statement that the dot product of any two columns (or rows) in the matrix are 0 if they are different and 1 if they are the same column.
+[^4]: For those of you familiar with big-O notation, calculating the matrix inverse takes O(N^3) time. Conversely calculating the transpose of a matrix can be implemented by changing the indexing of the datastructure.
+[^5]: Remember that for complex-valued vectors, the inner product requires the conjugation of one of the vectors. 
+[^6]: See for instance, "Mathematical Methods in the Physical Sciences", Boaz.
 
 
 
@@ -192,15 +192,15 @@ Furthermore, the results that we’ve derived here are applicable to the various
 [vecx]: https://latex.codecogs.com/gif.latex?\vec{x} "\vec{x}"
 [Xk]: https://latex.codecogs.com/gif.latex?X[k] "X[k]"
 [xn]: https://latex.codecogs.com/gif.latex?x[n] "x[n]"
-[zeqxy]: https://latex.codecogs.com/gif.latex?\vec{z} = (x,y) "\vec{z} = (x,y)"
+[zeqxy]: https://latex.codecogs.com/gif.latex?\vec{z}=(x,y) "\vec{z} = (x,y)"
 [e1hat]: https://latex.codecogs.com/gif.latex?\hat{e_1} "\hat{e_1}"
 [e2hat]: https://latex.codecogs.com/gif.latex?\hat{e_2} "\hat{e_2}"
-[abTran]: https://latex.codecogs.com/gif.latex?(a, b)^T "(a, b)^T"
+[abTran]: https://latex.codecogs.com/gif.latex?(a,b)^T "(a, b)^T"
 [keqk]: https://latex.codecogs.com/gif.latex?k_1&space;\eq&space;k_2 "k_1 \eq k_2"
 [kneqk]: https://latex.codecogs.com/gif.latex?k_2&space;\neq&space;k_2 "k_1 \neq k_2"
 [kminusk]: https://latex.codecogs.com/gif.latex?k_1-k_2 "k_1 - k_2"
-[kminusk_phasor]: https://latex.codecogs.com/gif.latex?e^(i2pi (k1-k2)) "e^(i2pi (k1-k2))"
-[theta] https://latex.codecogs.com/gif.latex?\theta "\theta”
+[kminusk_phasor]: https://latex.codecogs.com/gif.latex?e^{i2pi(k1-k2)} "e^{i2pi (k1-k2)}"
+[theta]: https://latex.codecogs.com/gif.latex?\theta "\theta”
 
 
 
