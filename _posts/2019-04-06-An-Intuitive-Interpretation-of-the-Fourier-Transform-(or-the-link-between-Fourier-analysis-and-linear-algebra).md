@@ -8,7 +8,7 @@ Now, the Fourier transform is one of tools that I use most often. It took me a l
 
 My objective with this blog post is not to belabor the mechanics of the Fourier transform or attempt to explain every intricate property of the Fourier transform. Rather, my objective is to show you a way of understanding the Fourier transform from a linear algebraic perspective. Once you gain an appreciation for this connection, many of the subtleties of the Fourier transform become almost obvious when observed through this lens [^1].
 
-A word of warning before we start: If you’ve never seen the Fourier transform before, this may not be the best place to start your journey. Fear not, however, you can find a good explanation of the (discrete) Fourier transform in my last blog post although I will probably repeat some of the points that I made there. I also recommend the following learning resources: Steve Smith’s [Book] (http://www.dspguide.com/) and Brian Douglas’ [YouTube series](https://www.youtube.com/watch?v=1JnayXHhjlg). I also quite like the explanation given by [betterexplained.com](https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/)
+A word of warning before we start: If you’ve never seen the Fourier transform before, this may not be the best place to start your journey. Fear not, however, you can find a good explanation of the (discrete) Fourier transform in my last blog post although I will probably repeat some of the points that I made there. I also recommend the following learning resources: Steve Smith’s [Book](http://www.dspguide.com/) and Brian Douglas’ [YouTube series](https://www.youtube.com/watch?v=1JnayXHhjlg). I also quite like the explanation given by [betterexplained.com](https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/)
 
 
 
@@ -19,7 +19,7 @@ Now that we know the punchline, let’s take some time to really understand what
 
 ### Basis vectors
 
-An implicit assumption of linear algebra is that each number in a vector has some physical meaning. For example, in the three vector, (1,2,3), the first position might represent a one-unit step in the x-axis, the second position might represent the one-unit step in the y-axis, and the third position might represent the one-unit step in the z-axis. The numbers in the vectors then represent how much of each direction is needed to “build” the vector.
+An implicit assumption of linear algebra is that each number in a vector has some physical meaning. For example, in the three vector, (_,_,_), the first position might represent a one-unit step in the x-axis, the second position might represent the one-unit step in the y-axis, and the third position might represent the one-unit step in the z-axis. The numbers in the vectors then represent how much of each direction is needed to “build” the vector.
 
 ### Change of Basis
 
@@ -31,7 +31,7 @@ When written numerically, the vectors take the form (counter-clockwise from red 
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\vec{r}&space;=&space;\begin{bmatrix}1&space;\\&space;0\end{bmatrix},&space;\vec{b}&space;=&space;\frac{1}{\sqrt{2}}\begin{bmatrix}1&space;\\&space;1\end{bmatrix},&space;\vec{g}&space;=&space;\frac{1}{\sqrt{2}}\begin{bmatrix}-1&space;\\&space;1\end{bmatrix},&space;\vec{k}&space;=&space;\frac{1}{\sqrt{2}}\begin{bmatrix}-2&space;\\&space;2\end{bmatrix}" title="\large \vec{r} = \begin{bmatrix}1 \\ 0\end{bmatrix}, \vec{b} = \frac{1}{\sqrt{2}}\begin{bmatrix}1 \\ 1\end{bmatrix}, \vec{g} = \frac{1}{\sqrt{2}}\begin{bmatrix}-1 \\ 1\end{bmatrix}, \vec{k} = \frac{1}{\sqrt{2}}\begin{bmatrix}-2 \\ 2\end{bmatrix}" />
 
-The first thing to notice here is that the red vector’s representation is simpler than the other vectors’ representations. Although some people may disagree, mathematicians generally prefer simplicity over complexity. When given the option between vectors with many zeros and only a few zeros, it’s preferable to pick the vector with many zeros. For example, the vector (1,0,0,0) is in general better than the vector (1,2,3,4). In linear algebra, this means that the vector is aligned with the underlying axes. To build the red vector, we simply take one step in the x-direction and zero steps in the y direction.
+The first thing to notice here is that the red vector’s representation is simpler than the other vectors’ representations. Although some people may disagree, mathematicians generally prefer simplicity over complexity. When given the option between vectors with many zeros and only a few zeros, it’s preferable to pick the vector with many zeros. For example, the vector (1,0,0,0) is in general better than the vector (1,2,3,4). In linear algebra, this means that the vector is aligned with the underlying axes.
 
 With this in mind, we might ask: “can we rotate these vectors such that we can align more of the vectors with the underlying axes (i.e. get more zeros)?”. Indeed, we can! If we rotate the above vectors clockwise by 45 degrees, we find that three out of the four vectors have “simpler” representations:
 
@@ -115,7 +115,7 @@ or written in a more mathematically suggestive form:
 
 It turns out that when we use the exponential formalism, that we are simultaneously finding the necessary cosines and sines together. 
 
-Next, we will show that these vectors are a valid basis for an N-dimensional space. As we will show, the N vectors that we have defined above are not only linearly independent (i.e. form a basis for an N-dimensional space), but are (with a proper scaling factor) orthonormal (i.e. form an especially “nice”/useful basis). To prove orthogonality, we need to show that the dot product (we will use ************************ to denote dot/inner product) between all vectors is zero when the two vectors are different (i.e. ![kneqk]) and non-zero when the two vectors are the same (i.e. ![keq]). This is from the definition of dotproduct: \vec{a}\cdot\vec{b}=\|a\|\|b\|\cos(\theta). Thus the dot product is zero when the angle between the vectors (![theta]) is zero. Let’s start by proving that the inner product (dot product) between vectors with the same frequency is non-zero[^5]:
+Next, we will show that these vectors are a valid basis for an N-dimensional space. As we will show, the N vectors that we have defined above are not only linearly independent (i.e. form a basis for an N-dimensional space), but are (with a proper scaling factor) orthonormal (i.e. form an especially “nice”/useful basis). To prove orthogonality, we need to show that the dot product (we will use ![braket] to denote dot/inner product) between all vectors is zero when the two vectors are different (i.e. ![kneqk]) and non-zero when the two vectors are the same (i.e. ![keq]). This is from the definition of dotproduct: \vec{a}\cdot\vec{b}=\|a\|\|b\|\cos(\theta). Thus the dot product is zero when the angle between the vectors (![theta]) is zero. Let’s start by proving that the inner product (dot product) between vectors with the same frequency is non-zero[^5]:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{align*}&space;\langle&space;v_k,&space;v_k\rangle&space;=&space;\sum_{n=&space;0}^{N-1}v_k[n]&space;v_k[n]^*&space;&=&space;\sum_{n=&space;0}^{N-1}e^{i2\pi&space;k&space;n/N}&space;e^{-i2\pi&space;k&space;n/N}\\&space;&=&space;\sum_{n=&space;0}^{N-1}e^{0}\\&space;&=&space;N&space;\end{align*}" title="\large \begin{align*} \langle v_k, v_k\rangle = \sum_{n= 0}^{N-1}v_k[n] v_k[n]^* &= \sum_{n= 0}^{N-1}e^{i2\pi k n/N} e^{-i2\pi k n/N}\\ &= \sum_{n= 0}^{N-1}e^{0}\\ &= N \end{align*}" />
 
@@ -159,7 +159,7 @@ In this inverse matrix, all of our columns shown in the first matrix have now be
 
 Most importantly, this equation here is exactly equal to the discrete Fourier transform. 
 
-If you’re wondering why it doesn’t look like the representation that you’re most likely familiar with, the answer is that in most representations of the Fourier transform, the notation is compressed. Rather than write out the full matrix equation, a simpler equation for the kth frequency term is given instead. Because we are multiplying a matrix by a vector, the equation for ![Xk] is the dot (inner) product of the input vector ![xn] with the k th row of the matrix (i.e. F[k,i] for I = 0 to N-1). When we do this to our above equation, this gives the familiar Fourier transform equation:
+If you’re wondering why it doesn’t look like the representation that you’re most likely familiar with, the answer is that in most representations of the Fourier transform, the notation is compressed. Rather than write out the full matrix equation, a simpler equation for the kth frequency term is given instead. Because we are multiplying a matrix by a vector, the equation for ![Xk] is the dot (inner) product of the input vector ![xn] with the k th row of the matrix (i.e. ![FofKi] for I = 0 to N-1). When we do this to our above equation, this gives the familiar Fourier transform equation:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;X[k]&space;=&space;\sum_{n=0}^{N-1}x[n]e^{-2\pi&space;k&space;\frac{n}{N}}" title="\large X[k] = \sum_{n=0}^{N-1}x[n]e^{-2\pi k \frac{n}{N}}" />
 
@@ -171,15 +171,15 @@ You next question might be “so what? Who cares that the discrete Fourier trans
 
 For example, I could never figure out why after all these summations (or integrations), that the inverse Fourier transform would perfectly cancel out the Fourier transform. But when these transformations are thought of as conversions from one base and then back again, it becomes almost intuitive that they should cancel eachother out.
 
-As a more advanced example, I also like the intutition that this approach gives to the van-kurniget zuinky theorem. Which states that the time domain and frequency domain representations contain equal amounts of power. Because the Fourier transform matrix is unitary (orthonormal), the "length" of the input vector is not changed when converting from the time to frequency bases. Since length-squared is proportional to power for signals, the fact that the lengths are the same mean that the power contained by the representations is also the same. 
+As a more advanced example, I also like the intutition that this approach gives Parseval's theorem. Which states that the time domain and frequency domain representations contain equal amounts of power. Because the Fourier transform matrix is unitary (orthonormal), the "length" of the input vector is not changed when converting from the time to frequency bases. Since length-squared is proportional to power for signals, the fact that the lengths are the same mean that the power contained by the representations is also the same. 
 
 Furthermore, the results that we’ve derived here are applicable to the various other versions of the Fourier transform (e.g. continuous time, 2D, 3D, etc.). Unfortunately, those derivations are up to you. While the reduction of the Fourier transform to a matrix multiplication is only valid for discrete Fourier transform, many of the other statements still hold. Most importantly, we can think of any of the other Fourier transforms as projections of time-domain signals onto the Fourier basis with the appropriate frequencies.
 
 
 [^1]: As it turns out, this blog might have the unintended consequence of elucidating certain subtleties of linear algebra as well. It certainly did for me!
 [^2]: Linear operations are ones that can be expressed as a matrix multiplication with the vector of inputs.
-[^3]: This comes directly from the fact that A^T A = I. This in turn is a statement that the dot product of any two columns (or rows) in the matrix are 0 if they are different and 1 if they are the same column.
-[^4]: For those of you familiar with big-O notation, calculating the matrix inverse takes O(N^3) time. Conversely calculating the transpose of a matrix can be implemented by changing the indexing of the datastructure.
+[^3]: This comes directly from the fact that ![ataeqi]. This in turn is a statement that the dot product of any two columns (or rows) in the matrix are 0 if they are different and 1 if they are the same column.
+[^4]: For those of you familiar with big-O notation, calculating the matrix inverse takes ![ocube] time. Conversely, calculating the transpose of a matrix can be implemented by simply changing the indexing of the datastructure.
 [^5]: Remember that for complex-valued vectors, the inner product requires the conjugation of one of the vectors. 
 [^6]: See for instance, "Mathematical Methods in the Physical Sciences", Boaz.
 
@@ -200,7 +200,10 @@ Furthermore, the results that we’ve derived here are applicable to the various
 [kneqk]: https://latex.codecogs.com/gif.latex?k_2&space;\neq&space;k_2 "k_1 \neq k_2"
 [kminusk]: https://latex.codecogs.com/gif.latex?k_1-k_2 "k_1 - k_2"
 [kminusk_phasor]: https://latex.codecogs.com/gif.latex?e^{i2pi(k1-k2)} "e^{i2pi (k1-k2)}"
-[theta]: https://latex.codecogs.com/gif.latex?\theta "\theta”
-
+[theta]: https://latex.codecogs.com/gif.latex?\theta "\theta"
+[ocube]: https://latex.codecogs.com/gif.latex?O(N^3) "O(N^3)"
+[ataeqi]: https://latex.codecogs.com/gif.latex?A^TA=I "A^TA=I"
+[FofKi]: https://latex.codecogs.com/gif.latex?\mathfrak{F}[k,i] "\mathfrak{F}[k,i]"
+[braket]: https://latex.codecogs.com/gif.latex?\left\langle\cdot,\cdot\right\rangle "\left\langle\cdot,\cdot\right\rangle"
 
 
