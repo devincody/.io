@@ -134,7 +134,7 @@ Proving that the inner product between any two different frequency vectors is 0 
 
 The trick to solving this equation is to factor out n from the exponential.
 
-\langle v_k_1, v_k_2\rangle = \sum_{n= 0}^{N-1} \left[e^{i2\pi (k_1-k_2)/N}\right]^n
+<img src="https://www.codecogs.com/eqnedit.php?latex=\langle&space;v_k_1,&space;v_k_2\rangle&space;=&space;\sum_{n=&space;0}^{N-1}&space;\left[e^{i2\pi&space;(k_1-k_2)/N}\right]^n" title="\langle v_k_1, v_k_2\rangle = \sum_{n= 0}^{N-1} \left[e^{i2\pi (k_1-k_2)/N}\right]^n" />
 
 Next, we need to recognize that this is a finite geometric sequence in n. With that in mind, we can therefore apply the equation for finite sums of geometric series[^6]:
 
