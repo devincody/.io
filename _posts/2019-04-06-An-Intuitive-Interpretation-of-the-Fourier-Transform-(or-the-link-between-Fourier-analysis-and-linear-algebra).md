@@ -19,11 +19,14 @@ Now that we know the punchline, let’s take some time to really understand what
 
 ### Basis vectors
 
-An implicit assumption of linear algebra is that each number in a vector has some physical meaning. For example, in the three vector, (_,_,_), the first position might represent a one-unit step in the x-axis, the second position might represent the one-unit step in the y-axis, and the third position might represent the one-unit step in the z-axis. The numbers in the vectors then represent how much of each direction is needed to “build” the vector.
+An implicit assumption of linear algebra is that each number in a vector has some physical meaning. For example, in the three vector, (1,1,1), the first position might represent a one-unit step in the x-axis, the second position might represent the one-unit step in the y-axis, and the third position might represent the one-unit step in the z-axis. The numbers in the vectors then represent how much of each direction is needed to “build” the vector.
 
 ### Change of Basis
 
 Note, however, the x, y, and z axes are not always the most convenient axes for expressing the vector. Consider the following vectors:
+
+![Original Vectors](https://raw.githubusercontent.com/devincody/Blog/master/_images/projection/originalvectors.PNG)
+
 
 Figure 1: Four two-dimensional vectors in the “standard” basis. Notice that the red vector is aligned with the “standard” basis while the other three are not aligned with either axis.
 
@@ -34,6 +37,8 @@ When written numerically, the vectors take the form (counter-clockwise from red 
 The first thing to notice here is that the red vector’s representation is simpler than the other vectors’ representations. Although some people may disagree, mathematicians generally prefer simplicity over complexity. When given the option between vectors with many zeros and only a few zeros, it’s preferable to pick the vector with many zeros. For example, the vector (1,0,0,0) is in general better than the vector (1,2,3,4). In linear algebra, this means that the vector is aligned with the underlying axes.
 
 With this in mind, we might ask: “can we rotate these vectors such that we can align more of the vectors with the underlying axes (i.e. get more zeros)?”. Indeed, we can! If we rotate the above vectors clockwise by 45 degrees, we find that three out of the four vectors have “simpler” representations:
+
+![Rotated Vectors](https://raw.githubusercontent.com/devincody/Blog/master/_images/projection/rotatedvectors.PNG)
 
 When written out:
 
@@ -63,6 +68,8 @@ we want to express every possible vector as a combination of the new basis vecto
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\hat{e_1}'&space;=&space;\begin{bmatrix}&space;\cos(\theta)&space;\\&space;-\sin(\theta)\end{bmatrix},&space;\hat{e_2}'&space;=&space;\begin{bmatrix}&space;\sin(\theta)&space;\\&space;\cos(\theta)\end{bmatrix}" title="\large \hat{e_1}' = \begin{bmatrix} \cos(\theta) \\ -\sin(\theta)\end{bmatrix}, \hat{e_2}' = \begin{bmatrix} \sin(\theta) \\ \cos(\theta)\end{bmatrix}" />
 
 Visually, the new vectors are given by the blue vectors below:
+
+![Rotation basis vectors](https://raw.githubusercontent.com/devincody/Blog/master/_images/projection/rotationbasisvectors.PNG)
 
 The key question now is: how do we find the representation of any vector, ![zeqxy] with the new vectors? Put another way, we need to find how much of each of the new basis vectors are needed for ![vecz]. Mathematically, we need to solve the following equation for a and b:
 
@@ -105,6 +112,8 @@ where k is our “frequency” index and n is our “time” index. As we are ab
 
 Because there’s a lot going on in this equation, let’s make things more concrete by considering the case where N = 18. Fig. 3 shows four of the eighteen possible sinusoids. 
 
+![Fouier transform basis vectors](https://raw.githubusercontent.com/devincody/Blog/master/_images/projection/sinusoidalbasisvectors.PNG)
+
 For those of you wondering what happened to the N/2 + 1 sines and N/2 + 1 cosines used in most traditional introductions of the Fourier transform (such as the one I gave in my last blog post), it turns out that these two representations are equivalent due to Euler’s formula
 
 <img src="https://latex.codecogs.com/gif.latex?e^{i&space;\phi&space;}&space;=&space;\cos\left(\phi&space;\right)&space;&plus;&space;i&space;\sin\left(\phi&space;\right)" title="e^{i \phi } = \cos\left(\phi \right) + i \sin\left(\phi \right)" />
@@ -143,7 +152,7 @@ The next step is to project our length-N signal ![vecx] onto this Fourier basis 
 
 Expressed mathematically:
 
-***************************
+![Fouier transform matrix](fouriertransformmatrix.PNG)
 
 The above matrix can be confusing, so I find that it’s best to think of the matrix as a collection of columns where for each column corresponds to a different k. Furthermore, it’s worthwhile to remember that we already plotted what the columns should look like in fig 3.
 
