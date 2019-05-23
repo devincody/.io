@@ -152,7 +152,7 @@ The next step is to project our length-N signal ![vecx] onto this Fourier basis 
 
 Expressed mathematically:
 
-![Fouier transform matrix](fouriertransformmatrix.PNG)
+![Fouier transform matrix](https://raw.githubusercontent.com/devincody/Blog/master/_images/projection/fouriertransformmatrix.PNG)
 
 The above matrix can be confusing, so I find that it’s best to think of the matrix as a collection of columns where for each column corresponds to a different k. Furthermore, it’s worthwhile to remember that we already plotted what the columns should look like in fig 3.
 
