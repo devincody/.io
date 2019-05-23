@@ -6,7 +6,7 @@ I didn’t understand why the mathematics worked the way they did. And I couldn�
 
 Now, the Fourier transform is one of tools that I use most often. It took me a long time to gain a physical intuition for the Fourier transform, but now that I have it, I’ve decided that its too exciting not to share.
 
-My objective with this blog post is not to belabor the mechanics of the Fourier transform or attempt to explain every intricate property of the Fourier transform. Rather, my objective is to show you a way of understanding the Fourier transform from a linear algebraic perspective. Once you gain an appreciation for this connection, many of the subtleties of the Fourier transform become almost obvious when observed through this lens [^1].
+My objective with this blog post is not to belabor the mechanics of the Fourier transform or attempt to explain every intricate property of the Fourier transform. Rather, my objective is to show you a way of understanding the Fourier transform from a linear algebraic perspective. Once you gain an appreciation for this connection, many of the subtleties of the Fourier transform become almost obvious when observed through this lens[^1].
 
 A word of warning before we start: If you’ve never seen the Fourier transform before, this may not be the best place to start your journey. Fear not, however, you can find a good explanation of the (discrete) Fourier transform in my last blog post although I will probably repeat some of the points that I made there. I also recommend the following learning resources: Steve Smith’s [Book](http://www.dspguide.com/) and Brian Douglas’ [YouTube series](https://www.youtube.com/watch?v=1JnayXHhjlg). I also quite like the explanation given by [betterexplained.com](https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/)
 
@@ -124,7 +124,7 @@ or written in a more mathematically suggestive form:
 
 It turns out that when we use the exponential formalism, that we are simultaneously finding the necessary cosines and sines together. 
 
-Next, we will show that these vectors are a valid basis for an N-dimensional space. As we will show, the N vectors that we have defined above are not only linearly independent (i.e. form a basis for an N-dimensional space), but are (with a proper scaling factor) orthonormal (i.e. form an especially “nice”/useful basis). To prove orthogonality, we need to show that the dot product (we will use ![braket] to denote dot/inner product) between all vectors is zero when the two vectors are different (i.e. ![kneqk]) and non-zero when the two vectors are the same (i.e. ![keq]). This is from the definition of dotproduct: \vec{a}\cdot\vec{b}=\|a\|\|b\|\cos(\theta). Thus the dot product is zero when the angle between the vectors (![theta]) is zero. Let’s start by proving that the inner product (dot product) between vectors with the same frequency is non-zero[^5]:
+Next, we will show that these vectors are a valid basis for an N-dimensional space. As we will show, the N vectors that we have defined above are not only linearly independent (i.e. form a basis for an N-dimensional space), but are (with a proper scaling factor) orthonormal (i.e. form an especially “nice”/useful basis). To prove orthogonality, we need to show that the dot product (we will use ![braket] to denote dot/inner product) between all vectors is zero when the two vectors are different (i.e. ![kneqk]) and non-zero when the two vectors are the same (i.e. ![keqk]). This is from the definition of dotproduct: <img src="https://latex.codecogs.com/gif.latex?\vec{a}\cdot\vec{b}=|a||b|\cos(\theta)" title="\vec{a}\cdot\vec{b}=|a||b|\cos(\theta)" />. Thus the dot product is zero when the angle between the vectors (![theta]) is zero. Let’s start by proving that the inner product (dot product) between vectors with the same frequency is non-zero[^5]:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{align*}&space;\langle&space;v_k,&space;v_k\rangle&space;=&space;\sum_{n=&space;0}^{N-1}v_k[n]&space;v_k[n]^*&space;&=&space;\sum_{n=&space;0}^{N-1}e^{i2\pi&space;k&space;n/N}&space;e^{-i2\pi&space;k&space;n/N}\\&space;&=&space;\sum_{n=&space;0}^{N-1}e^{0}\\&space;&=&space;N&space;\end{align*}" title="\large \begin{align*} \langle v_k, v_k\rangle = \sum_{n= 0}^{N-1}v_k[n] v_k[n]^* &= \sum_{n= 0}^{N-1}e^{i2\pi k n/N} e^{-i2\pi k n/N}\\ &= \sum_{n= 0}^{N-1}e^{0}\\ &= N \end{align*}" />
 
@@ -183,6 +183,13 @@ For example, I could never figure out why after all these summations (or integra
 As a more advanced example, I also like the intutition that this approach gives Parseval's theorem. Which states that the time domain and frequency domain representations contain equal amounts of power. Because the Fourier transform matrix is unitary (orthonormal), the "length" of the input vector is not changed when converting from the time to frequency bases. Since length-squared is proportional to power for signals, the fact that the lengths are the same mean that the power contained by the representations is also the same. 
 
 Furthermore, the results that we’ve derived here are applicable to the various other versions of the Fourier transform (e.g. continuous time, 2D, 3D, etc.). Unfortunately, those derivations are up to you. While the reduction of the Fourier transform to a matrix multiplication is only valid for discrete Fourier transform, many of the other statements still hold. Most importantly, we can think of any of the other Fourier transforms as projections of time-domain signals onto the Fourier basis with the appropriate frequencies.
+
+### Notes
+See below for footnotes.
+
+### Comments
+
+{% include disqus.html %}
 
 
 [^1]: As it turns out, this blog might have the unintended consequence of elucidating certain subtleties of linear algebra as well. It certainly did for me!
