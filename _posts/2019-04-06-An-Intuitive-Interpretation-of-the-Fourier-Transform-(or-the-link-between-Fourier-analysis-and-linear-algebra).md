@@ -128,6 +128,8 @@ Next, we will show that these vectors are a valid basis for an N-dimensional spa
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{align*}&space;\langle&space;v_k,&space;v_k\rangle&space;=&space;\sum_{n=&space;0}^{N-1}v_k[n]&space;v_k[n]^*&space;&=&space;\sum_{n=&space;0}^{N-1}e^{i2\pi&space;k&space;n/N}&space;e^{-i2\pi&space;k&space;n/N}\\&space;&=&space;\sum_{n=&space;0}^{N-1}e^{0}\\&space;&=&space;N&space;\end{align*}" title="\large \begin{align*} \langle v_k, v_k\rangle = \sum_{n= 0}^{N-1}v_k[n] v_k[n]^* &= \sum_{n= 0}^{N-1}e^{i2\pi k n/N} e^{-i2\pi k n/N}\\ &= \sum_{n= 0}^{N-1}e^{0}\\ &= N \end{align*}" />
 
+Because orthonormality requires that all the vectors have unit length (not lengths = N), we need to divide all the vectors by sqrt(N).
+
 Proving that the inner product between any two different frequency vectors is 0 is a little bit more tricky:
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{align*}&space;\langle&space;v_k_1,&space;v_k_2\rangle&space;=&space;\sum_{n=&space;0}^{N-1}&space;v_k_1[n]&space;v_k_2[n]^*&space;&=&space;\sum_{n=&space;0}^{N-1}e^{i2\pi&space;k_1&space;n/N}&space;e^{-i2\pi&space;k_2&space;n/N}\\&space;&=&space;\sum_{n=&space;0}^{N-1}&space;e^{i2\pi&space;n&space;(k_1-k_2)/N}&space;\end{align*}" title="\large \begin{align*} \langle v_k_1, v_k_2\rangle = \sum_{n= 0}^{N-1} v_k_1[n] v_k_2[n]^* &= \sum_{n= 0}^{N-1}e^{i2\pi k_1 n/N} e^{-i2\pi k_2 n/N}\\ &= \sum_{n= 0}^{N-1} e^{i2\pi n (k_1-k_2)/N} \end{align*}" />
@@ -158,17 +160,19 @@ The above matrix can be confusing, so I find that it’s best to think of the ma
 
 When we invert the matrix, we can solve for ![vecx], which is the representation of our signal in the Fourier basis. 
 
-Now, it might seem intimidating to invert an arbitrarily-large NxN matrix, but we’re in luck. Because our matrix is orthogonal, it’s inverse is simply its conjugate transpose (Hermitian conjugate). This inverse matrix is known as the Fourier transform matrix:
+Now, it might seem intimidating to invert an arbitrarily-large NxN matrix, but we’re in luck. Because our matrix is orthonormal, it’s inverse is simply its conjugate transpose (Hermitian conjugate). This inverse matrix is known as the Fourier transform matrix:
 
-<img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{F}&space;=&space;\begin{bmatrix}&space;e^{-i2\pi&space;0&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;0&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;0&space;\frac{2}{N}}&space;&&space;\cdots&space;&&space;e^{-i2\pi&space;0&space;\frac{N-1}{N}}&space;\\&space;e^{-i2\pi&space;1&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;1&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;1&space;\frac{2}{N}}&space;&&space;\cdots&space;&e^{-i2\pi&space;1&space;\frac{N-1}{N}}&space;\\&space;e^{-i2\pi&space;2&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;2&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;2&space;\frac{2}{N}}&space;&&space;\cdots&space;&e^{-i2\pi&space;2&space;\frac{N-1}{N}}&space;\\&space;\vdots&space;&\vdots&space;&&space;\vdots&space;&&space;&&space;\vdots&space;\\&space;e^{-i2\pi&space;(N-1)&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;(N-1)&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;(N-1)&space;\frac{2}{N}}&space;&&space;\cdots&space;&e^{-i2\pi&space;(N-1)&space;\frac{N-1}{N}}&space;\\&space;\end{bmatrix}" title="\large \mathfrak{F} = \begin{bmatrix} e^{-i2\pi 0 \frac{0}{N}} & e^{-i2\pi 0 \frac{1}{N}} & e^{-i2\pi 0 \frac{2}{N}} & \cdots & e^{-i2\pi 0 \frac{N-1}{N}} \\ e^{-i2\pi 1 \frac{0}{N}} & e^{-i2\pi 1 \frac{1}{N}} & e^{-i2\pi 1 \frac{2}{N}} & \cdots &e^{-i2\pi 1 \frac{N-1}{N}} \\ e^{-i2\pi 2 \frac{0}{N}} & e^{-i2\pi 2 \frac{1}{N}} & e^{-i2\pi 2 \frac{2}{N}} & \cdots &e^{-i2\pi 2 \frac{N-1}{N}} \\ \vdots &\vdots & \vdots & & \vdots \\ e^{-i2\pi (N-1) \frac{0}{N}} & e^{-i2\pi (N-1) \frac{1}{N}} & e^{-i2\pi (N-1) \frac{2}{N}} & \cdots &e^{-i2\pi (N-1) \frac{N-1}{N}} \\ \end{bmatrix}" />
+<img src="https://latex.codecogs.com/gif.latex?\large&space;\mathfrak{F}&space;=&space;\frac{1}{\sqrt{N}}\begin{bmatrix}&space;e^{-i2\pi&space;0&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;0&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;0&space;\frac{2}{N}}&space;&&space;\cdots&space;&&space;e^{-i2\pi&space;0&space;\frac{N-1}{N}}&space;\\&space;e^{-i2\pi&space;1&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;1&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;1&space;\frac{2}{N}}&space;&&space;\cdots&space;&e^{-i2\pi&space;1&space;\frac{N-1}{N}}&space;\\&space;e^{-i2\pi&space;2&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;2&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;2&space;\frac{2}{N}}&space;&&space;\cdots&space;&e^{-i2\pi&space;2&space;\frac{N-1}{N}}&space;\\&space;\vdots&space;&\vdots&space;&&space;\vdots&space;&&space;&&space;\vdots&space;\\&space;e^{-i2\pi&space;(N-1)&space;\frac{0}{N}}&space;&&space;e^{-i2\pi&space;(N-1)&space;\frac{1}{N}}&space;&&space;e^{-i2\pi&space;(N-1)&space;\frac{2}{N}}&space;&&space;\cdots&space;&e^{-i2\pi&space;(N-1)&space;\frac{N-1}{N}}&space;\\&space;\end{bmatrix}" title="\large \mathfrak{F} = \frac{1}{\sqrt{N}}\begin{bmatrix} e^{-i2\pi 0 \frac{0}{N}} & e^{-i2\pi 0 \frac{1}{N}} & e^{-i2\pi 0 \frac{2}{N}} & \cdots & e^{-i2\pi 0 \frac{N-1}{N}} \\ e^{-i2\pi 1 \frac{0}{N}} & e^{-i2\pi 1 \frac{1}{N}} & e^{-i2\pi 1 \frac{2}{N}} & \cdots &e^{-i2\pi 1 \frac{N-1}{N}} \\ e^{-i2\pi 2 \frac{0}{N}} & e^{-i2\pi 2 \frac{1}{N}} & e^{-i2\pi 2 \frac{2}{N}} & \cdots &e^{-i2\pi 2 \frac{N-1}{N}} \\ \vdots &\vdots & \vdots & & \vdots \\ e^{-i2\pi (N-1) \frac{0}{N}} & e^{-i2\pi (N-1) \frac{1}{N}} & e^{-i2\pi (N-1) \frac{2}{N}} & \cdots &e^{-i2\pi (N-1) \frac{N-1}{N}} \\ \end{bmatrix}" />
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\vec{X}&space;=&space;\mathfrak{F}\vec{x}" title="\large \vec{X} = \mathfrak{F}\vec{x}" />
 
-In this inverse matrix, all of our columns shown in the first matrix have now been transposed into row vectors and have been conjugated (all imaginary parts now have a minus sign in front). 
+A note of warning here before we go further: This version of the Fourier transform matrix that I’ve introduced is the *unitary* version of the Fourier transform matrix. The only difference between it and the more commonly used Fourier transform matrix is the scalar factor of 1/sqrt(N) which doesn’t appear in the more traditional version[^7].
+
+In the above inverse matrix, all of our columns shown in the first matrix have now been transposed into row vectors and have been conjugated (all imaginary parts now have a minus sign in front). 
 
 Most importantly, this equation here is exactly equal to the discrete Fourier transform. 
 
-If you’re wondering why it doesn’t look like the representation that you’re most likely familiar with, the answer is that in most representations of the Fourier transform, the notation is compressed. Rather than write out the full matrix equation, a simpler equation for the kth frequency term is given instead. Because we are multiplying a matrix by a vector, the equation for ![Xk] is the dot (inner) product of the input vector ![xn] with the k th row of the matrix (i.e. ![FofKi] for I = 0 to N-1). When we do this to our above equation, this gives the familiar Fourier transform equation:
+If you’re wondering why it doesn’t look like the representation that you’re most likely familiar with, the answer is that in most representations of the Fourier transform, the notation is compressed. Rather than write out the full matrix equation, a simpler equation for the kth frequency term is given instead. Because we are multiplying a matrix by a vector, the equation for ![Xk] is the dot (inner) product of the input vector ![xn] with the k th row of the matrix (i.e. ![FofKi] for I = 0 to N-1). When we do this to our above equation, this gives the familiar Fourier transform equation (ignoring the scalar factor):
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;X[k]&space;=&space;\sum_{n=0}^{N-1}x[n]e^{-2\pi&space;k&space;\frac{n}{N}}" title="\large X[k] = \sum_{n=0}^{N-1}x[n]e^{-2\pi k \frac{n}{N}}" />
 
@@ -180,7 +184,7 @@ You next question might be “so what? Who cares that the discrete Fourier trans
 
 For example, I could never figure out why after all these summations (or integrations), that the inverse Fourier transform would perfectly cancel out the Fourier transform. But when these transformations are thought of as conversions from one base and then back again, it becomes almost intuitive that they should cancel eachother out.
 
-As a more advanced example, I also like the intutition that this approach gives Parseval's theorem. Which states that the time domain and frequency domain representations contain equal amounts of power. Because the Fourier transform matrix is unitary (orthonormal), the "length" of the input vector is not changed when converting from the time to frequency bases. Since length-squared is proportional to power for signals, the fact that the lengths are the same mean that the power contained by the representations is also the same. 
+As a more advanced example, I also like the intutition that this approach gives Parseval's theorem. Which states that the time domain and frequency domain representations contain equal amounts of power. Because the Fourier transform matrix is unitary (orthonormal), the "length" of the input vector is not changed when converting from the time to frequency bases. Since length-squared is proportional to power for signals, the fact that the lengths are the same mean that the power contained by the representations is also the same!
 
 Furthermore, the results that we’ve derived here are applicable to the various other versions of the Fourier transform (e.g. continuous time, 2D, 3D, etc.). Unfortunately, those derivations are up to you. While the reduction of the Fourier transform to a matrix multiplication is only valid for discrete Fourier transform, many of the other statements still hold. Most importantly, we can think of any of the other Fourier transforms as projections of time-domain signals onto the Fourier basis with the appropriate frequencies.
 
@@ -198,7 +202,7 @@ See below for footnotes.
 [^4]: For those of you familiar with big-O notation, calculating the matrix inverse takes ![ocube] time. Conversely, calculating the transpose of a matrix can be implemented by simply changing the indexing of the datastructure.
 [^5]: Remember that for complex-valued vectors, the inner product requires the conjugation of one of the vectors. 
 [^6]: See for instance, "Mathematical Methods in the Physical Sciences", Boaz.
-
+[^7]: I decided to use the unitary version of the Fourier transform since it helps stress the symmetry of the forward and inverse Fourier transforms.
 
 
 
@@ -221,5 +225,5 @@ See below for footnotes.
 [ataeqi]: https://latex.codecogs.com/gif.latex?A^TA=I "A^TA=I"
 [FofKi]: https://latex.codecogs.com/gif.latex?\mathfrak{F}[k,i] "\mathfrak{F}[k,i]"
 [braket]: https://latex.codecogs.com/gif.latex?\left\langle\cdot,\cdot\right\rangle "\left\langle\cdot,\cdot\right\rangle"
-
+[sqrtN]: https://latex.codecogs.com/gif.latex?\sqrt{N} "\sqrt{N}"
 
