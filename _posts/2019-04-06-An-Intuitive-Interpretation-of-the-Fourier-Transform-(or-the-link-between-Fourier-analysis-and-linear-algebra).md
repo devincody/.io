@@ -128,7 +128,7 @@ Next, we will show that these vectors are a valid basis for an N-dimensional spa
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{align*}&space;\langle&space;v_k,&space;v_k\rangle&space;=&space;\sum_{n=&space;0}^{N-1}v_k[n]&space;v_k[n]^*&space;&=&space;\sum_{n=&space;0}^{N-1}e^{i2\pi&space;k&space;n/N}&space;e^{-i2\pi&space;k&space;n/N}\\&space;&=&space;\sum_{n=&space;0}^{N-1}e^{0}\\&space;&=&space;N&space;\end{align*}" title="\large \begin{align*} \langle v_k, v_k\rangle = \sum_{n= 0}^{N-1}v_k[n] v_k[n]^* &= \sum_{n= 0}^{N-1}e^{i2\pi k n/N} e^{-i2\pi k n/N}\\ &= \sum_{n= 0}^{N-1}e^{0}\\ &= N \end{align*}" />
 
-Because orthonormality requires that all the vectors have unit length (not lengths = N), we need to divide all the vectors by sqrt(N).
+Because orthonormality requires that all the vectors have unit length (not lengths = N), we need to divide all the vectors by ![sqrtN].
 
 Proving that the inner product between any two different frequency vectors is 0 is a little bit more tricky:
 
@@ -166,7 +166,7 @@ Now, it might seem intimidating to invert an arbitrarily-large NxN matrix, but w
 
 <img src="https://latex.codecogs.com/gif.latex?\large&space;\vec{X}&space;=&space;\mathfrak{F}\vec{x}" title="\large \vec{X} = \mathfrak{F}\vec{x}" />
 
-A note of warning here before we go further: This version of the Fourier transform matrix that I’ve introduced is the *unitary* version of the Fourier transform matrix. The only difference between it and the more commonly used Fourier transform matrix is the scalar factor of 1/sqrt(N) which doesn’t appear in the more traditional version[^7].
+A note of warning here before we go further: This version of the Fourier transform matrix that I’ve introduced is the *unitary* version of the Fourier transform matrix. The only difference between it and the more commonly used Fourier transform matrix is the scalar factor of ![invsqrtN] which doesn’t appear in the more traditional version[^7].
 
 In the above inverse matrix, all of our columns shown in the first matrix have now been transposed into row vectors and have been conjugated (all imaginary parts now have a minus sign in front). 
 
@@ -226,4 +226,4 @@ See below for footnotes.
 [FofKi]: https://latex.codecogs.com/gif.latex?\mathfrak{F}[k,i] "\mathfrak{F}[k,i]"
 [braket]: https://latex.codecogs.com/gif.latex?\left\langle\cdot,\cdot\right\rangle "\left\langle\cdot,\cdot\right\rangle"
 [sqrtN]: https://latex.codecogs.com/gif.latex?\sqrt{N} "\sqrt{N}"
-
+[invsqrtN]: https://latex.codecogs.com/gif.latex?\frac{1}{sqrt{N}} "\frac{1}{\sqrt{N}}"
