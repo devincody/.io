@@ -202,7 +202,7 @@ See below for footnotes.
 [^4]: For those of you familiar with big-O notation, calculating the matrix inverse takes ![ocube] time. Conversely, calculating the transpose of a matrix can be implemented by simply changing the indexing of the datastructure.
 [^5]: Remember that for complex-valued vectors, the inner product requires the conjugation of one of the vectors. 
 [^6]: See for instance, "Mathematical Methods in the Physical Sciences", Boaz.
-[^7]: I decided to use the unitary version of the Fourier transform since it helps stress the symmetry of the forward and inverse Fourier transforms.
+[^7]: I decided to use the unitary version of the Fourier transform since it helps stress the symmetry of the forward and inverse Fourier transforms. Further discussion of the scaling conventions can be found on Wikipedia's page on the [DFT matrix](https://en.wikipedia.org/wiki/DFT_matrix). 
 
 
 
